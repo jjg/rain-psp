@@ -25,5 +25,3 @@ module Display_top(){
         */
     }
 }
-
-Display_top();
