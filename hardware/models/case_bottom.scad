@@ -3,6 +3,7 @@ include <modules/pinea64.scad>
 include <modules/keyboard.scad>
 
 include <case_top.scad>
+include <display_top.scad>
 
 
 INCLUDE_COMPONENTS = true;
@@ -66,6 +67,14 @@ if(INCLUDE_COMPONENTS) {
         rotate([180,0,0]){
             color("orange")
             Case_top();
+        }
+    }
+    
+    // Add display top
+    translate([BASE_WIDTH/2,BASE_DEPTH,BOTTOM_HEIGHT]){
+        rotate([180,-120,0]){
+            color("pink")
+            Display_top();
         }
     }
 }
