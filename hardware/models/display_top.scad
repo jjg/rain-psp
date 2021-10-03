@@ -15,15 +15,23 @@ module Display_top(){
             cube([WIDTH,DEPTH-(OUTER_WALL*2),HEIGHT+OUTER_WALL]);
         }
         
-        /*
-        // Vents
-        for(i=[1:9]){
-            translate([(WIDTH/2) - (WIDTH*.75)/2, (OUTER_WALL*4)*i, -1]){
-                cube([WIDTH*.75, 3, OUTER_WALL+2]);
-            }
+        // Opening for case top
+        translate([0,OUTER_WALL,0]){
+            cube([26,DEPTH-(OUTER_WALL*2), OUTER_WALL]);
         }
-        */
     }
+    
+    // Hinge
+    translate([0,0,HEIGHT/2]){
+        rotate([-90,0,0]){
+            cylinder(r=HEIGHT/2,h=OUTER_WALL);
+        }
+    }
+    translate([0,DEPTH-OUTER_WALL,HEIGHT/2]){
+        rotate([-90,0,0]){
+            cylinder(r=HEIGHT/2,h=OUTER_WALL);
+        }
+    }    
 }
 
 //Display_top();

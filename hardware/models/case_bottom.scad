@@ -30,6 +30,24 @@
             cube([20,233,10]);
         }
     }
+    
+    // Add hinge
+    translate([(BASE_WIDTH/2)-15,OUTER_WALL,0]){
+        cube([BOTTOM_HEIGHT,OUTER_WALL,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]);
+        translate([BOTTOM_HEIGHT/2,0,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]){
+            rotate([-90,0,0]){
+                cylinder(r=BOTTOM_HEIGHT/2,h=OUTER_WALL);
+            }
+        }
+    }
+    translate([(BASE_WIDTH/2)-15,BASE_DEPTH-(OUTER_WALL*2),0]){
+        cube([BOTTOM_HEIGHT,OUTER_WALL,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]);
+        translate([BOTTOM_HEIGHT/2,0,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]){
+            rotate([-90,0,0]){
+                cylinder(r=BOTTOM_HEIGHT/2,h=OUTER_WALL);
+            }
+        }
+    }
 }
 
 //Case_bottom();
