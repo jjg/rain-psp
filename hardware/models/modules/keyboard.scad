@@ -1,3 +1,7 @@
 module Keyboard(){
-    cube([210,100,5]);
+    
+    /*
+    Planck STL is 233x81x1.5mm
+    */
+    cube([81,233,1.5]);
 }

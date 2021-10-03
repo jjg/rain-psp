@@ -9,7 +9,7 @@ include <display_top.scad>
 
 // TODO: Rename these variables to avoid confusion.
 BASE_WIDTH = 300;
-BASE_DEPTH = 210;
+BASE_DEPTH = 233;//210;
 BASE_HEIGHT = 5;
 BOTTOM_HEIGHT = 30; // TODO: Measure this.
 
@@ -33,7 +33,7 @@ difference(){
         }
 
         // Add keyboard
-        translate([BASE_WIDTH, 0, 20]){
+        translate([BASE_WIDTH, -3, 20]){
             rotate([5,0,90]){
                 color("green")
                 //Keyboard();

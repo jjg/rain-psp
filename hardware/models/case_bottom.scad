@@ -1,7 +1,7 @@
  module Case_bottom(){
 
     BASE_WIDTH = 300;
-    BASE_DEPTH = 210;
+    BASE_DEPTH = 233;//210;
     BASE_HEIGHT = 5;
     BOTTOM_HEIGHT = 30; // TODO: Measure this.
     OUTER_WALL = 5;
@@ -21,7 +21,7 @@
             rotate([5,0,90]){
                 //color("green")
                 //Keyboard();
-                cube([210,100,BOTTOM_HEIGHT]);
+                cube([233,100,BOTTOM_HEIGHT]);
             }
         }
     }

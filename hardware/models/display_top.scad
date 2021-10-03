@@ -1,7 +1,7 @@
 module Display_top(){
     
     WIDTH = 150;
-    DEPTH = 210;
+    DEPTH = 233;//210;
     HEIGHT = 30;
     OUTER_WALL = 5;
     
