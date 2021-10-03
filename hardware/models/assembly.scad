@@ -36,7 +36,8 @@ difference(){
         translate([BASE_WIDTH, 0, 20]){
             rotate([5,0,90]){
                 color("green")
-                Keyboard();
+                //Keyboard();
+                import("planck_plate.stl");
             }
         }
 
@@ -57,8 +58,8 @@ difference(){
         }
     }
     
-    // TODO: Cross-section
+    // Cross-section
     translate([-1,-1,-1]){
-        cube([310,100,200]);
+        //cube([310,100,200]);
     }
 }
