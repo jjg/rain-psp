@@ -30,5 +30,3 @@ module Case_top(){
         }
     }
 }
-
-Case_top();
