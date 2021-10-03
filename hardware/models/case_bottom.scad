@@ -17,12 +17,19 @@
         }
         
         // Cutout for keyboard
-        translate([BASE_WIDTH, 0, 20]){
+        translate([BASE_WIDTH-3, 0, 21.5]){
             rotate([5,0,90]){
                 //color("green")
                 //Keyboard();
-                cube([233,100,BOTTOM_HEIGHT]);
+                cube([233,81,BOTTOM_HEIGHT]);
             }
+        }
+        
+        // Cut-off keyboard lip
+        translate([BASE_WIDTH-3, 0, 23]){
+            cube([20,233,10]);
         }
     }
 }
+
+//Case_bottom();

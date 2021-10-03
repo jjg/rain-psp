@@ -28,4 +28,9 @@ Made a lot of progress already.  Got basic initial models for most of the parts 
 
 It is a bit wider than the current design (which is based on an A4 sheet) so the next step will be to widen everytihing to make it fit.
 
+That went well.  
+
+Now that I can see where the keyboard switches will fall, it may be necissary to move things around a bit.  I'm not sure that they keyboard is going to clear the A64 sufficiently so I may need to either move the board or increase the overall height of the machine.  Additional points of interference are now becoming apparent where the keycaps may intersect with the display/lid when closed.  I could try adding models for the switches and keycaps to try and sort this out on-screen, but it might just be easier to print some samples and do some test fitting.
+
+
 
