@@ -1,4 +1,4 @@
- module Case_bottom(){
+module Case_bottom(){
 
     BASE_WIDTH = 300;
     BASE_DEPTH = 233;//210;
@@ -30,6 +30,7 @@
         translate([BASE_WIDTH-3, 0, 23]){
             cube([20,233,10]);
         }
+        
     }
     
     // Add hinge

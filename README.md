@@ -10,7 +10,6 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
 
 ## TODO:
 
-* Cooling fan mounts and openings (C-shape)
 * Slide-on top cover
 * Control panel cover (between keyboard and bottom of display)
 * Improve display hinge

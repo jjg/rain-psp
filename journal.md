@@ -52,4 +52,6 @@ For now they should be good enough to get the interference testing done.
 
 I should add more photos of the progress...
 
+I was able to create they very cool Cray-tribute vents!  The implementation is a bit messy and I need to do work on the case bottom to integrate them in a way that makes sense, but still pretty cool.
 
+I might cut them out of the case top as-is just to see how they come out (even though in the long run they will come completely out of the case bottom.)

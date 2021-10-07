@@ -1,6 +1,7 @@
 include <modules/clusterboard.scad>
 include <modules/pinea64.scad>
 include <modules/keyboard.scad>
+include <modules/vent.scad>
 
 include <case_bottom.scad>
 include <case_top.scad>
@@ -69,6 +70,28 @@ difference(){
             }
         }
         
+    }
+    
+    // Vents
+    // NOTE: These are roughly-equally spaced across the back.
+    // The will need to be moved to the bottom plate (when the 
+    // bottom plate is expanded to provide the entire back-side
+    // of the case).  They may also be biased to one side or
+    // another depending on optimal fan placement.
+    translate([0,58,30]){
+        rotate([90,0,-90]){
+            Vent();
+        }
+    }
+    translate([0,116,30]){
+        rotate([90,0,-90]){
+            Vent();
+        }
+    }
+    translate([0,174,30]){
+        rotate([90,0,-90]){
+            Vent();
+        }
     }
     
     // Cross-section
