@@ -1,6 +1,8 @@
 # RAIN PSP
 
-Redundant Array of Inexpensive Nodes Personal Supercomputer Portable (RAIN PSP) is a "laptop" version of the RAIN Mark II Personal Supercomputer (also known as [RAIN Mark II Supercomputer Trainer](https://hackaday.io/project/85392-rain-mark-ii-supercomputer-trainer)).
+*Redundant Array of Inexpensive Nodes Mark III - Personal Supercomputer Portable (aka: RAIN PSP)*
+
+A "laptop" version of the RAIN Mark II Personal Supercomputer (also known as [RAIN Mark II Supercomputer Trainer](https://hackaday.io/project/85392-rain-mark-ii-supercomputer-trainer)).
 
 ![Assembly screenshot](./images/assembly_screenshot.png)
 
@@ -15,6 +17,3 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
     + Add latch or other form of retention (spring, etc.)
     + Add switch to detect when display is closed
 * Openings for ports
-* 
-
-

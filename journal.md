@@ -39,4 +39,17 @@ While the printer runs I'm thinking about what's next.  I need to make room for 
 
 Keyswitches came in the mail today and they fit nicely into the current frame.  I found a sample key to print to see if I could print a working key and it worked fine.  Found a [library for generating keys](https://github.com/rsheldiii/keyv2) and I'm printing a few now to use for interference tests.
 
-Ran into some snags printing the bottom case (broke the printer) so I'll have to re-print that and the display top before I can test the fit for interference with the keys
+Ran into some snags printing the bottom case (broke the printer) so I'll have to re-print that and the display top before I can test the fit for interference with the keys.
+
+
+## 10072021
+
+Started printing the base last night, but ran out of filament by morning.  Was able to re-start the print with another scrap spool and it seems to be working so far.  Hopefully there's enough on there to make it all the way through this time.
+
+I also ran a set of 10 keys off and got a chance to try and fit them.  They don't work as well right-off-the-printer as the first key I tried, but with a little trimming seem to do the trick.  The bottom of the stem is just a hair too wide to fit into the keyswitch (there is a little pocket where the stem goes into when the key is pressed), I'm not sure if that's a printing defect or a design problem, but it's something I'll have to sort-out before I try printing a full set.
+
+For now they should be good enough to get the interference testing done.
+
+I should add more photos of the progress...
+
+
