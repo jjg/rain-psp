@@ -52,7 +52,7 @@ difference(){
         }
 
         // Add display top
-        /*
+        
         // closed
         translate([BASE_WIDTH/2,BASE_DEPTH,BOTTOM_HEIGHT*2]){
             rotate([180,0,0]){
@@ -60,7 +60,7 @@ difference(){
                 Display_top();
             }
         }
-        */
+        
         
         // open
         /*
@@ -71,7 +71,7 @@ difference(){
             }
         }
         */
-        
+        /*
         // 90 degrees
         translate([135,BASE_DEPTH,45]){
             rotate([180,-90,0]){
@@ -79,7 +79,7 @@ difference(){
                 Display_top();
             }
         }
-        
+        */
     }
     
     // Cross-section

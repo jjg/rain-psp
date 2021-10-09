@@ -21,7 +21,7 @@ module Display_top(){
                 // Opening for case top
                 translate([0,OUTER_WALL,0]){
                     //#cube([26,DEPTH-(OUTER_WALL*2), OUTER_WALL]);
-                    #cube([20,DEPTH-(OUTER_WALL*2), OUTER_WALL]);
+                    cube([20,DEPTH-(OUTER_WALL*2), OUTER_WALL]);
                 }
             }
             
