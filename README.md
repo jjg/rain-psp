@@ -1,6 +1,6 @@
 # RAIN PSP
 
-*Redundant Array of Inexpensive Nodes Mark III - Personal Supercomputer Portable (aka: RAIN PSP)*
+*Redundant Array of Inexpensive Nodes Mark II - Personal Supercomputer Portable (aka: RAIN PSP)*
 
 A "laptop" version of the RAIN Mark II Personal Supercomputer (also known as [RAIN Mark II Supercomputer Trainer](https://hackaday.io/project/85392-rain-mark-ii-supercomputer-trainer)).
 
