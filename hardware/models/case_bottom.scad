@@ -1,7 +1,7 @@
 module Case_bottom(){
 
     BASE_WIDTH = 300;
-    BASE_DEPTH = 233;//210;
+    BASE_DEPTH = 243;//233;//210;
     BASE_HEIGHT = 5;
     BOTTOM_HEIGHT = 30; // TODO: Measure this.
     OUTER_WALL = 5;
@@ -22,13 +22,13 @@ module Case_bottom(){
             rotate([5,0,90]){
                 //color("green")
                 //Keyboard();
-                cube([233,81,BOTTOM_HEIGHT]);
+                cube([BASE_DEPTH,81,BOTTOM_HEIGHT]);
             }
         }
         
         // Cut-off keyboard lip
         translate([BASE_WIDTH-3, 0, 23]){
-            cube([20,233,10]);
+            cube([20,BASE_DEPTH,10]);
         }
         
     }
@@ -37,14 +37,14 @@ module Case_bottom(){
     translate([(BASE_WIDTH/2)-15,OUTER_WALL,0]){
         difference(){
             union(){
-                cube([BOTTOM_HEIGHT,OUTER_WALL,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]);
-                translate([BOTTOM_HEIGHT/2,0,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]){
+                cube([BOTTOM_HEIGHT,OUTER_WALL,BOTTOM_HEIGHT*1.5]);
+                translate([BOTTOM_HEIGHT/2,0,BOTTOM_HEIGHT*1.5]){
                     rotate([-90,0,0]){
                         cylinder(r=BOTTOM_HEIGHT/2,h=OUTER_WALL);
                     }
                 }
             }
-            translate([BOTTOM_HEIGHT/2,0,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]){
+            translate([BOTTOM_HEIGHT/2,0,BOTTOM_HEIGHT*1.5]){
                 rotate([-90,0,0]){
                     cylinder(r=HINGE_BOLT_SHAFT_DIAMETER/2,h=OUTER_WALL);
                 }
@@ -54,14 +54,14 @@ module Case_bottom(){
     translate([(BASE_WIDTH/2)-15,BASE_DEPTH-(OUTER_WALL*2),0]){
         difference(){
             union(){
-                cube([BOTTOM_HEIGHT,OUTER_WALL,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]);
-                translate([BOTTOM_HEIGHT/2,0,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]){
+                cube([BOTTOM_HEIGHT,OUTER_WALL,BOTTOM_HEIGHT*1.5]);
+                translate([BOTTOM_HEIGHT/2,0,BOTTOM_HEIGHT*1.5]){
                     rotate([-90,0,0]){
                         cylinder(r=BOTTOM_HEIGHT/2,h=OUTER_WALL);
                     }
                 }
             }
-            translate([BOTTOM_HEIGHT/2,0,(BOTTOM_HEIGHT*1.5)-OUTER_WALL]){
+            translate([BOTTOM_HEIGHT/2,0,BOTTOM_HEIGHT*1.5]){
                 rotate([-90,0,0]){
                     cylinder(r=HINGE_BOLT_SHAFT_DIAMETER/2,h=OUTER_WALL);
                 }

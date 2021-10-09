@@ -10,7 +10,7 @@ include <display_top.scad>
 
 // TODO: Rename these variables to avoid confusion.
 BASE_WIDTH = 300;
-BASE_DEPTH = 233;//210;
+BASE_DEPTH = 243; //233;//210;
 BASE_HEIGHT = 5;
 BOTTOM_HEIGHT = 30; // TODO: Measure this.
 OUTER_WALL = 5;
@@ -63,8 +63,17 @@ difference(){
         */
         
         // open
+        /*
         translate([137,BASE_DEPTH,38]){
             rotate([180,-120,0]){
+                color("pink")
+                Display_top();
+            }
+        }
+        */
+        // 90 degrees
+        translate([135,BASE_DEPTH,45]){
+            rotate([180,-90,0]){
                 color("pink")
                 Display_top();
             }
@@ -78,6 +87,7 @@ difference(){
     // bottom plate is expanded to provide the entire back-side
     // of the case).  They may also be biased to one side or
     // another depending on optimal fan placement.
+    /*
     translate([0,58,30]){
         rotate([90,0,-90]){
             Vent();
@@ -93,6 +103,7 @@ difference(){
             Vent();
         }
     }
+    */
     
     // Cross-section
     translate([-1,-1,-1]){

@@ -1,7 +1,7 @@
 module Case_top(){
     
     WIDTH = 149;
-    DEPTH = 233;//210;
+    DEPTH = 243;//233;//210;
     HEIGHT = 30;
     OUTER_WALL = 5;
     
@@ -23,12 +23,12 @@ module Case_top(){
         }
         translate([WIDTH,0,HEIGHT/2]){
             rotate([-90,0,0]){
-                cylinder(r=HEIGHT/2,h=OUTER_WALL);
+                #cylinder(r=HEIGHT/2,h=OUTER_WALL*2);
             }
         }
-        translate([WIDTH,DEPTH-OUTER_WALL,HEIGHT/2]){
+        translate([WIDTH,DEPTH-(OUTER_WALL*2),HEIGHT/2]){
             rotate([-90,0,0]){
-                cylinder(r=HEIGHT/2,h=OUTER_WALL);
+                #cylinder(r=HEIGHT/2,h=OUTER_WALL*2);
             }
         }
         

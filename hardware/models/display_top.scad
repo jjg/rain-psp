@@ -1,7 +1,7 @@
 module Display_top(){
     
     WIDTH = 150;
-    DEPTH = 233;//210;
+    DEPTH = 243;//233;//210;
     HEIGHT = 30;
     OUTER_WALL = 5;
     HINGE_BOLT_SHAFT_DIAMETER = 5;
@@ -20,7 +20,8 @@ module Display_top(){
                 
                 // Opening for case top
                 translate([0,OUTER_WALL,0]){
-                    cube([26,DEPTH-(OUTER_WALL*2), OUTER_WALL]);
+                    //#cube([26,DEPTH-(OUTER_WALL*2), OUTER_WALL]);
+                    #cube([20,DEPTH-(OUTER_WALL*2), OUTER_WALL]);
                 }
             }
             
