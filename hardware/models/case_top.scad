@@ -1,3 +1,5 @@
+include <modules/vent.scad>
+
 module Case_top(){
     
     WIDTH = 149;
@@ -23,12 +25,12 @@ module Case_top(){
         }
         translate([WIDTH,0,HEIGHT/2]){
             rotate([-90,0,0]){
-                #cylinder(r=HEIGHT/2,h=OUTER_WALL*2);
+                cylinder(r=HEIGHT/2,h=OUTER_WALL*2);
             }
         }
         translate([WIDTH,DEPTH-(OUTER_WALL*2),HEIGHT/2]){
             rotate([-90,0,0]){
-                #cylinder(r=HEIGHT/2,h=OUTER_WALL*2);
+                cylinder(r=HEIGHT/2,h=OUTER_WALL*2);
             }
         }
         
@@ -37,8 +39,34 @@ module Case_top(){
             cube([WIDTH,DEPTH-(OUTER_WALL*2),HEIGHT+OUTER_WALL]);
         }
         
+        // Cutout for fans
+        translate([OUTER_WALL,3,OUTER_WALL-2]){
+            cube([40.5,20.5,40.5]);
+            translate([19,0,HEIGHT-3]){
+                rotate([90,0,180]){
+                    Vent();
+                }
+            }
+        }
+        translate([OUTER_WALL+40+2,3,OUTER_WALL-2]){
+            cube([40.5,20.5,40.5]);
+            translate([19,0,HEIGHT-3]){
+                rotate([90,0,180]){
+                    Vent();
+                }
+            }
+        }
+        translate([OUTER_WALL+40+2+40+2,3,OUTER_WALL-2]){
+            cube([40.5,20.5,40.5]);
+            translate([19,0,HEIGHT-3]){
+                rotate([90,0,180]){
+                    Vent();
+                }
+            }
+        }
+        
         // Vents
-        for(i=[1:9]){
+        for(i=[2:10]){
             translate([(WIDTH/2) - (WIDTH*.80)/2, (OUTER_WALL*4)*i, -1]){
                 cube([WIDTH*.75, 3, OUTER_WALL+2]);
             }

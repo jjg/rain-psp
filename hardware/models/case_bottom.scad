@@ -1,3 +1,5 @@
+include <modules/vent.scad>
+
 module Case_bottom(){
 
     BASE_WIDTH = 300;
@@ -15,6 +17,32 @@ module Case_bottom(){
         // Cutout for electronics
         translate([OUTER_WALL, OUTER_WALL, BASE_HEIGHT]){
             cube([BASE_WIDTH-(OUTER_WALL*2),BASE_DEPTH-(OUTER_WALL*2),BOTTOM_HEIGHT+OUTER_WALL]);
+        }
+        
+        // Cutout for fans
+        translate([OUTER_WALL,BASE_DEPTH-20-3,OUTER_WALL-2]){
+            cube([40.5,20.5,40.5]);
+            translate([19,22,BOTTOM_HEIGHT-3]){
+                rotate([90,0,180]){
+                    Vent();
+                }
+            }
+        }
+        translate([OUTER_WALL+40+2,BASE_DEPTH-20-3,OUTER_WALL-2]){
+            cube([40.5,20.5,40.5]);
+            translate([19,22,BOTTOM_HEIGHT-3]){
+                rotate([90,0,180]){
+                    Vent();
+                }
+            }
+        }
+        translate([OUTER_WALL+40+2+40+2,BASE_DEPTH-20-3,OUTER_WALL-2]){
+            cube([40.5,20.5,40.5]);
+            translate([19,22,BOTTOM_HEIGHT-3]){
+                rotate([90,0,180]){
+                    Vent();
+                }
+            }
         }
         
         // Cutout for keyboard

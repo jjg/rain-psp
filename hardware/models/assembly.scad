@@ -71,6 +71,7 @@ difference(){
             }
         }
         */
+        
         // 90 degrees
         translate([135,BASE_DEPTH,45]){
             rotate([180,-90,0]){
@@ -80,30 +81,6 @@ difference(){
         }
         
     }
-    
-    // Vents
-    // NOTE: These are roughly-equally spaced across the back.
-    // The will need to be moved to the bottom plate (when the 
-    // bottom plate is expanded to provide the entire back-side
-    // of the case).  They may also be biased to one side or
-    // another depending on optimal fan placement.
-    /*
-    translate([0,58,30]){
-        rotate([90,0,-90]){
-            Vent();
-        }
-    }
-    translate([0,116,30]){
-        rotate([90,0,-90]){
-            Vent();
-        }
-    }
-    translate([0,174,30]){
-        rotate([90,0,-90]){
-            Vent();
-        }
-    }
-    */
     
     // Cross-section
     translate([-1,-1,-1]){
