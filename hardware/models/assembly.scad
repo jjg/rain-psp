@@ -52,7 +52,7 @@ difference(){
         }
 
         // Add display top
-        
+        /*
         // closed
         translate([BASE_WIDTH/2,BASE_DEPTH,BOTTOM_HEIGHT*2]){
             rotate([180,0,0]){
@@ -60,17 +60,16 @@ difference(){
                 Display_top();
             }
         }
-        
+        */
         
         // open
-        /*
         translate([137,BASE_DEPTH,38]){
             rotate([180,-120,0]){
                 color("pink")
                 Display_top();
             }
         }
-        */
+        
         /*
         // 90 degrees
         translate([135,BASE_DEPTH,45]){
