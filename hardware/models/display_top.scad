@@ -11,11 +11,24 @@ module Display_top(){
             difference(){
                 
                 // Main box
-                cube([WIDTH, DEPTH, HEIGHT]);
+                union(){
+                    cube([WIDTH, DEPTH, HEIGHT]);
+                            // Cut-off keyboard lip
+                    translate([WIDTH-2, 0, 27]){
+                        rotate([-5,0,90]){
+                            //color("green")
+                            //Keyboard();
+                            cube([DEPTH,81,10]);
+                        }
+                    }
+                    translate([WIDTH-3, 0, 23]){
+                        cube([3,DEPTH,14]);
+                    }
+                }
                 
                 // Make room for electronics
                 translate([-OUTER_WALL, OUTER_WALL, OUTER_WALL]){
-                    cube([WIDTH,DEPTH-(OUTER_WALL*2),HEIGHT+OUTER_WALL]);
+                    cube([WIDTH+2,DEPTH-(OUTER_WALL*2),HEIGHT+OUTER_WALL]);
                 }
                 
                 // Opening for case top
@@ -52,4 +65,4 @@ module Display_top(){
     }
 }
 
-//Display_top();
+Display_top();
