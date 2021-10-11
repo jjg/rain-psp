@@ -55,3 +55,18 @@ I should add more photos of the progress...
 I was able to create they very cool Cray-tribute vents!  The implementation is a bit messy and I need to do work on the case bottom to integrate them in a way that makes sense, but still pretty cool.
 
 I might cut them out of the case top as-is just to see how they come out (even though in the long run they will come completely out of the case bottom.)
+
+
+## 10112021
+
+Reworked the case a bit over the weekend and I think the parts I have now will accomodate most of the problems I found earlier.  I still have some things to sort-out, but making progress.
+
+I settled on a different LCD, it costs more and uses HDMI which is not what I wanted (I wanted to use the built-in display hardware and leave HDMI for secondary purposes), but it's nice and should work.
+
+I also started trying to find a way to connect the keyboard that doesn't require USB.  I can't remember if I explained why I don't want to use USB before but it's mostly because the USB ports will be outside of the machine, and also the cables are a pain in the ass.  What I'm leaning toward now is using a 3.3v microcontroller to do the matrix scanning and then output the codes (ASCII?) via UART into one of the serial ports on the A64 head node.  From there it's a software trick to map that tty into the system console and maybe something will work?
+
+Here's the most concise example I could find:
+
+https://create.arduino.cc/projecthub/ejshea/displaying-key-pressed-on-serial-monitor-98ace1
+
+I have a lot of soldering to do (and ordering more parts) before I even need to worry about the keyboard programming, and in the meantime I can use an external keyboard to get things going.

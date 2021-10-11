@@ -12,9 +12,12 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
 
 ## TODO:
 
-* Slide-on top cover
 * Control panel cover (between keyboard and bottom of display)
 * Improve display hinge
     + Add latch or other form of retention (spring, etc.)
     + Add switch to detect when display is closed
 * Openings for ports
+
+
+# References
+* [https://create.arduino.cc/projecthub/ejshea/displaying-key-pressed-on-serial-monitor-98ace1](https://create.arduino.cc/projecthub/ejshea/displaying-key-pressed-on-serial-monitor-98ace1)
