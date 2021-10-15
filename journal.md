@@ -70,3 +70,16 @@ Here's the most concise example I could find:
 https://create.arduino.cc/projecthub/ejshea/displaying-key-pressed-on-serial-monitor-98ace1
 
 I have a lot of soldering to do (and ordering more parts) before I even need to worry about the keyboard programming, and in the meantime I can use an external keyboard to get things going.
+
+
+## 10152021
+
+Made a lot of progress with the printed parts and decided to start wiring-things up to figure out where it all fits.  After a few tries I got the head node booting Armbian (power problems of course).  I also got the LCD mounted, but it had to go in upside-down to put the connectors in a reasonable place.
+
+I haven't figured out how to flip the screen at the kernel level so the text console is still upside down, but I did find a command that will flip the GUI:
+
+`sudo xrandr -o inverted`
+
+This is good enough for now.
+
+
