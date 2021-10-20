@@ -105,3 +105,11 @@ display_rotate=1 #1：90；2: 180； 3: 270
 There's still the problem of the digitizer being wrong, but there's a fix for that too from the Waveshare wiki:
 
 https://www.waveshare.com/wiki/7inch_HDMI_LCD_(C)
+
+So how many GPIO's do we need and do we have enough?
+
+Hot damn: https://github.com/qmk/qmk_kernel_module
+
+If this works, it's pretty much exactly what I'm looking for...
+
+
