@@ -83,3 +83,25 @@ I haven't figured out how to flip the screen at the kernel level so the text con
 This is good enough for now.
 
 
+## 10202120
+
+Last night I started thinking about using something else for the head node.  If I could cram both the keyboard controller and a video terminal into one board, that would save me from having to add a second mcu to decode the keyboard, and if it were smaller than the Pine64 head node, might save me some space and power too.
+
+So I'm experimenting with using a Raspberry Pi Zero W.  This is kind of overkill, but it can drive the HDMI LCD, and I think it has enough GPIO to handle the keyboard matrix scanning.  It will be connected to the clusterboard via serial, so essentially a dumb terminal, and it has wifi if that is still needed
+
+The other upside of this serial connection is that it leaves the clusterboard's ethernet port open, so the machine could be tethered to a larger network with a high-speed connection.
+
+Semi-related I found a way to configure the display by editing the boot.txt file on the Pi's SD card.  Just add this to the end:
+
+```
+max_usb_current=1
+hdmi_group=2
+hdmi_mode=87
+hdmi_cvt 1024 600 60 6 0 0 0
+hdmi_drive=1
+display_rotate=1 #1：90；2: 180； 3: 270
+```
+
+There's still the problem of the digitizer being wrong, but there's a fix for that too from the Waveshare wiki:
+
+https://www.waveshare.com/wiki/7inch_HDMI_LCD_(C)
