@@ -113,3 +113,10 @@ Hot damn: https://github.com/qmk/qmk_kernel_module
 If this works, it's pretty much exactly what I'm looking for...
 
 
+## 10222021
+
+I found a sturdier planck keyboard tray and after printing it found that it fits perfection *inside* the case.  After thinking about this for awhile I decided to print the bottom of this keyboard a well and see where things fall if I just set the whole thing inside the case.  If nothing else it will serve as a placeholder for now, and maybe in the long-run I can do something crazy like make the keyboard removable?
+
+This is only possible because I can now cram all the electronics into the back-end of the case.  The Raspberry Pi ZeroW "head node" is working well, and fits in the space left next to the Clusterboard.  I'm not sure how this will play-out in the long run (this is where I planned to put batteries) but for now it's fine.
+
+

@@ -35,11 +35,11 @@ difference(){
         }
 
         // Add keyboard
-        translate([BASE_WIDTH-3, -3, 21.5]){
+        translate([BASE_WIDTH-40-3, 121, 21.5]){
             rotate([5,0,90]){
                 color("green")
                 //Keyboard();
-                import("planck_plate.stl");
+                import("reference/planckplate_v2_tab_fix.stl");
             }
         }
 
