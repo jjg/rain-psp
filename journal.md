@@ -159,6 +159,30 @@ Turns out there were a number of changes to the Raspberry Pi that resulted in co
 
 Things are getting to a point where I should really make a list of what's left...
 
+Added a long, unorganized list of todos to the readme.
 
+Bolted the Clusterboard and rpi0 into place and cobbled one of the fans into the 5v and GND connections of one of the 20 pin headers.  Works well and the whole package is a lot more stable now.  If these locations work-out I'll replace the bolts with printed stand-offs in the next model of the case.
 
+Going to try and add a button and LED to indicate the power state of one of the nodes as well as provide a way to turn it off and on.
 
+Well, the power off/on part works well, but the "heartbeat" (pin 2) doesn't appear to put out enough voltage to light the LEDs I have.  Hooking a meter up to the pin, I only get ~1.8vdc.  Based on the docs I would expect at least 3.3vdc, but maybe there's some software control over the pins voltage or duty cycle (maybe it's using PWM to set a low brightness?).  Dunno.  After scouring the docs I'm still not sure, so I'm going to ask around.
+
+Talked to someone on the Pine64 IRC and found out that this pin (#2) belongs to the "L GPIO bank", which is powered by ALD02, which is set in the device tree to variable voltage between 1.8 and 3.3v.
+
+So... I *should* be able to change that, but there may be side-effects if other things in that bank are expecting 1.8v.
+
+After chatting some more it looks like there may be other options.  I didn't completely understand them, but I'm going to experiment a bit and see what I can figure out using this as a starting point:
+
+https://www.ics.com/blog/gpio-programming-using-sysfs-interface
+
+OK, this took a little figuring but pin #2 on the header maps to pin 24 on the SOPINE connector, which in turn is connected to... looks like GPIO 359 on the Allwinner chip?
+
+So let's try this:
+
+```
+echo 359 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio359/direction
+echo 1 > /sys/class/gpio/gpio359/value
+```
+
+Well this turns it on, but it's still 1.8v....
