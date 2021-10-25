@@ -91,7 +91,7 @@ So I'm experimenting with using a Raspberry Pi Zero W.  This is kind of overkill
 
 The other upside of this serial connection is that it leaves the clusterboard's ethernet port open, so the machine could be tethered to a larger network with a high-speed connection.
 
-Semi-related I found a way to configure the display by editing the boot.txt file on the Pi's SD card.  Just add this to the end:
+Semi-related I found a way to configure the display by editing the config.txt file on the Pi's SD card.  Just add this to the end:
 
 ```
 max_usb_current=1
@@ -118,5 +118,47 @@ If this works, it's pretty much exactly what I'm looking for...
 I found a sturdier planck keyboard tray and after printing it found that it fits perfection *inside* the case.  After thinking about this for awhile I decided to print the bottom of this keyboard a well and see where things fall if I just set the whole thing inside the case.  If nothing else it will serve as a placeholder for now, and maybe in the long-run I can do something crazy like make the keyboard removable?
 
 This is only possible because I can now cram all the electronics into the back-end of the case.  The Raspberry Pi ZeroW "head node" is working well, and fits in the space left next to the Clusterboard.  I'm not sure how this will play-out in the long run (this is where I planned to put batteries) but for now it's fine.
+
+
+## 10242021
+
+Rebuilt the Pi's SD card so I could login (forgot the password) and have temporarilly mounted the Pi enough to get the screen working with an external USB.
+
+I think the next thing to do is to hook up a serial connection between the pi0 and one of the nodes on the clusterboard.  I think this should do:
+
+```
+pi          clusterboard (20-pin header)
+7   (TX)    ->  7   (RX)
+9   (RX)    ->  8   (TX)
+5   (GND)   ->  6   (GND)
+```
+
+Right now I'm pulling 5v for the pi0 from the ATX connector, but now that I'm looking at the 20-pin header on the Clusterboard I'm wondering if it would make more sense to get it from there?  If I'm going to be connecting to it for the serial console anyway, why not?
+
+```
+pi
+4   (5VDC)      ->  1   (VCC5V)
+6   (GND)       ->  6   (GND)
+8   (UART0_TXD) ->  7   (UART0-RX)
+10  (UART0_RXD) ->  8   (UART0-TX)
+```
+
+This works great for power but no luck so far getting a serial connection.
+
+It's not clear if the problem is the wiring or software, and it's not clear which end the problem is on (pi or clusterboard).  I've had trouble figuring out how to get the serial console on the clusterboard working before so that's my first suspeciion.
+
+
+
+## 10252021
+
+Turns out it wasn't a hardware issue, and it wasn't a configuration issue; it was a simple mistake in the command.  The following command works:
+
+`picocom /dev/serial0 -b115200`
+
+Turns out there were a number of changes to the Raspberry Pi that resulted in confusion about what serial devices is which.  The others (/dev/ttys0 and /dev/ttyAMA0) are tangled-up with the Bluetooth hardware.  
+
+Things are getting to a point where I should really make a list of what's left...
+
+
 
 
