@@ -19,7 +19,7 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
     + Add switch to detect when display is closed
     + Figure out wire routing
 * Openings for ports
-* Connect fans to Clusterboard 20 pin header
+* ~~Connect fans to Clusterboard 20 pin header~~
 * ~~Mount pi0~~
 * ~~Mount Clusterboard~~
 * Modify display lid, top cover so maximum opening lines-up
@@ -29,7 +29,7 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
 * Design mount for keyboard switchplate once final height is determined
 * Setup autologin on pi0 and automatically connect serial console
 * Clone SD card for all cluster nodes (setting MAC, IP, etc.)
-* Test node power switch, LED indicator
+* ~~Test node power switch, LED indicator~~
 * Order power switch/indicators for all cluster nodes
 * Add power input jack
 * Add main power switch

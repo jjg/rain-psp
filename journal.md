@@ -204,3 +204,8 @@ OK, I crammed the resistor into the base of the switch (this will be easier with
 
 Now to crimp...
 
+That went OK.  The single button/led I have now has Dupont ends as well as the three fans.  The fans are loud, which I hope means they are effective (hard to confirm until I get SD cards made for the remaining nodes).  
+
+I also threw-together a quick "control panel" model (the part between the top of the keyboard and the bottom of the display) so I had something to mount the button to.
+
+
