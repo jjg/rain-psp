@@ -186,3 +186,21 @@ echo 1 > /sys/class/gpio/gpio359/value
 ```
 
 Well this turns it on, but it's still 1.8v....
+
+
+## 10262021
+
+Going to pause getting the heartbeat to work with the SOPINE, but before I wrap that up I want to get some notes about the LED setup for whenever I figure out how to get 3.3v out of that pin.
+
+I connected the button/LED combo I have to the 3.3v supply of the rpi0 to figure out the pinout.  It has a small red dot to the left of the anode, and lights nicely when driven directly from the 3.3v supply.  It's always a good idea to throw a resistor in there to prevent the LED from gobbling too much current, and after some experimentation it looks like 10 ohms is a good fit.
+
+```
+3.3v -> LED -> 10ohm -> gnd
+```
+
+Ideally I'd combine this with the button to minimize the wiring.  
+
+OK, I crammed the resistor into the base of the switch (this will be easier with more appropriately-rated resistors).  Looks like this will fit, and the power-on/off functionality works, so I think we're done here.
+
+Now to crimp...
+
