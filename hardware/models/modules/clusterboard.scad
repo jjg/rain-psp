@@ -4,5 +4,5 @@ module Clusterboard(){
     70x67x40mm (height includes SOPINE module)
     */
     
-    cube([170,167,40]);
+    cube([167,170,5]);
 }

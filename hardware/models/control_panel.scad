@@ -6,7 +6,7 @@ module Control_panel(){
     BASE_HEIGHT = 5;
     OUTER_WALL = 5;
     BUTTON_COUNT = 7;
-    BUTTON_DIAMETER = 12;
+    BUTTON_DIAMETER = 13;
     
     difference(){
         cube([WIDTH,DEPTH,HEIGHT-BASE_HEIGHT]);
@@ -17,12 +17,14 @@ module Control_panel(){
         }
         
         // power control holes
-        for(x=[1:BUTTON_COUNT]){
-            translate([(WIDTH/2),x*(16*1.5),0]){
-                #cylinder(r=BUTTON_DIAMETER/2,h=BASE_HEIGHT*2);
+        translate([0,(BUTTON_DIAMETER/2)+5,-1]){
+            for(x=[0:BUTTON_COUNT]){
+                translate([(WIDTH/2),x*19,0]){
+                    cylinder(r=BUTTON_DIAMETER/2,h=BASE_HEIGHT*2);
+                }
             }
         }
     }
 }
 
-Control_panel();
+//Control_panel();
