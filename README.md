@@ -54,3 +54,4 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
 # References
 * [https://create.arduino.cc/projecthub/ejshea/displaying-key-pressed-on-serial-monitor-98ace1](https://create.arduino.cc/projecthub/ejshea/displaying-key-pressed-on-serial-monitor-98ace1)
 * [https://www.thingiverse.com/thing:2822664/files](https://www.thingiverse.com/thing:2822664/files)
+* [https://github.com/qmk/qmk_kernel_module](https://github.com/qmk/qmk_kernel_module)

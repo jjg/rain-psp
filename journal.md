@@ -214,3 +214,17 @@ I also threw-together a quick "control panel" model (the part between the top of
 Remaining keyboard switches and diodes came today, got the them installed in the switchplate and soldered the diode layer (rows) of the matrix.  Need to do the columns next, but haven't settled on exactly how I want to wire them, so that may wait until tomorrow.
 
 
+## 11032021
+
+Soldering-up the columns today.  Found a pattern that works, although I'm not sure what to do with the "space" key that straddles two columns?
+
+Maybe it doesn't matter, but if it does I'd prefer to get it right the first time...
+
+After looking at a photo of the wiring of the keyboard mine is based on it looks like the shift key is just added to the column on the left of it, so we'll go that way for now.
+
+Next-up is wiring the matrix to the Pi.  I know I want to use some header sockets on the Pi end for sure, but I'm not sure if I want to use something detachable on the keyboard end as well?  Doing so will create more work, and it might cramp the space we have a bit but it also would allow me to connect the keyboard matrix to something other than the Pi easily, which might be useful for troubleshooting.
+
+It would also open-up the possibility of a detachable keyboard...
+
+Let's think about what pins we're going to connect to on the pi.
+
