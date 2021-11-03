@@ -209,3 +209,8 @@ That went OK.  The single button/led I have now has Dupont ends as well as the t
 I also threw-together a quick "control panel" model (the part between the top of the keyboard and the bottom of the display) so I had something to mount the button to.
 
 
+## 11022021
+
+Remaining keyboard switches and diodes came today, got the them installed in the switchplate and soldered the diode layer (rows) of the matrix.  Need to do the columns next, but haven't settled on exactly how I want to wire them, so that may wait until tomorrow.
+
+

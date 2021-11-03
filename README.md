@@ -16,11 +16,11 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
     * Clone SD card for all cluster nodes (setting MAC, IP, etc.)
     * Experiment with network booting
 * Keyboard
-    * Order remaining keyboard switches
+    * ~~Order remaining keyboard switches~~
     * Select gpio pins for keyboard
     * Wire keyboard to pi0 gpio connector
     * Wire keyboard switches
-    * Order final keykcaps
+    * ~~Order final keykcaps~~
     * Design mount for keyboard switchplate once final height is determined
 * Display
     * Add LCD to assembly
