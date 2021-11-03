@@ -19,7 +19,7 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
     * ~~Order remaining keyboard switches~~
     * Select gpio pins for keyboard
     * Wire keyboard to pi0 gpio connector
-    * Wire keyboard switches
+    * ~~Wire keyboard switches~~
     * ~~Order final keykcaps~~
     * Design mount for keyboard switchplate once final height is determined
 * Display
