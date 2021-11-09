@@ -228,3 +228,14 @@ It would also open-up the possibility of a detachable keyboard...
 
 Let's think about what pins we're going to connect to on the pi.
 
+
+## 11082021
+
+Thinking about the hinge, I came up with an idea for how the whole case might be held together with two bolts.
+
+I've been planning to replace the two bolts that hold the display lid to the base with black printed "thumbscrews" which are remenicent of the platen knobs on the Valentine.  It occurred to me that these could not only fasten the display cover to the base, but also the rear top cover as well.  
+
+The rear top could have an additional interleving "finger" on each side which sandwiches the bottom case portion of the hinge between the part of the display lid where the current bolt passes through on both sides (this will be easier to explain with a picture).  Additionally, the back cover could extend further into the keyboard area and "pin" the control panel piece down when the rear cover is slid into place.  The control oanel part could be extended to provide the base of the keyboard, locking into the bottom case using pins or teeth at the edge where the bottom (space key side) of the keyboard rests, and a similar set of teeth could be used at the opposite end to lock the top rear cover to the base when the cover is slid into place.
+
+I think this would allow all of the major parts of the case to be held together by only the two bolts embedded in the "platen knobs".  This solves a number of outstanding problems with holding the case together and does so in a way that is both elegant and makes servicing the machine easier.
+
