@@ -41,7 +41,7 @@ module Display_top(){
             // Hinge
             translate([0,0,HEIGHT/2]){
                 rotate([-90,0,0]){
-                    cylinder(r=HEIGHT/2,h=OUTER_WALL);
+                    #cylinder(r=HEIGHT/2,h=OUTER_WALL);
                 }
             }
             translate([0,DEPTH-OUTER_WALL,HEIGHT/2]){
@@ -65,4 +65,4 @@ module Display_top(){
     }
 }
 
-//Display_top();
+Display_top();

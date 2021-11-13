@@ -239,3 +239,9 @@ The rear top could have an additional interleving "finger" on each side which sa
 
 I think this would allow all of the major parts of the case to be held together by only the two bolts embedded in the "platen knobs".  This solves a number of outstanding problems with holding the case together and does so in a way that is both elegant and makes servicing the machine easier.
 
+
+## 11132021
+
+Modeling the platen-knob-style thumbscrews.
+
+
