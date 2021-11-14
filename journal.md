@@ -245,3 +245,12 @@ I think this would allow all of the major parts of the case to be held together 
 Modeling the platen-knob-style thumbscrews.
 
 
+## 11142021
+
+I may have found the perfect operating environment for RAIN-PSP.  I found out that there is a console interface for what I've used as [Jupyter notebooks](https://jupyter.org/), and in fact it is the ancestor of Jupyter: [IPython](https://jupyter.org/).  Not only this, but one of it's primary uses is [parallel computing](https://ipyparallel.readthedocs.io/en/latest/), which makes it a very natural fit for RAIN-class computers.
+
+I'm only just beginning to learn about this so there may be some issues with using it that I'm not aware of, but so far it seems like a perfect fit.
+
+I'm going to spend  some time tonight installing IPython on my regular laptop to see how hard it is to get it going.  If that goes well I'll try installing it on RAIN-PSP the next time I boot it up.
+
+
