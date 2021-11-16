@@ -254,3 +254,8 @@ I'm only just beginning to learn about this so there may be some issues with usi
 I'm going to spend  some time tonight installing IPython on my regular laptop to see how hard it is to get it going.  If that goes well I'll try installing it on RAIN-PSP the next time I boot it up.
 
 
+## 11162021
+
+Hex bolts for the the thumbscrews (platen knobs) came and after a few quick measurements I was able to print a couple pieces that work pretty good.  I wish I could have found black bolts (instead of plain stainless) but I think it doesn't mess-up the look too bad, and it's going to be brilliant when I re-design the other parts to all be pinned in place by these.
+
+
