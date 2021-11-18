@@ -259,3 +259,39 @@ I'm going to spend  some time tonight installing IPython on my regular laptop to
 Hex bolts for the the thumbscrews (platen knobs) came and after a few quick measurements I was able to print a couple pieces that work pretty good.  I wish I could have found black bolts (instead of plain stainless) but I think it doesn't mess-up the look too bad, and it's going to be brilliant when I re-design the other parts to all be pinned in place by these.
 
 
+## 11182021
+
+Spent a lot of time soldering and crimping the wires that will connect the keyboard matrix to the pi0.  Next step is to actually connect the two and see if we can make the keys work.  I'm thinking about trying something simple first (maybe just one key?) and then go from there.
+
+```
+row 1       ->  red     ->  GPIO12
+column 1    ->  blue    ->  GPIO20
+```
+
+Now that some of the wires are connected it's time to get the software in order.
+
+* Install [prerequisites](https://code.jasongullickson.com/jjg/qmk_kernel_module#building)
+* Clone ssh://git@code.jasongullickson.com:22022/jjg/qmk_kernel_module.git
+* Build & install kernel module
+* Build device tree overlay
+* Tweak various configs
+
+Turns out there is a hidden dependency on another repository named `libqmk`.  I pulled a copy of this over to my repository server and then created a symlink to a local clone.  This got us a little further.
+
+After messing-around it looks like there are unmet dependencies in this code.  I think I'm going to switch to this approach instead (even thought it doesn't support all the features I need):
+
+https://blog.gegg.us/2017/08/a-matrix-keypad-on-a-raspberry-pi-done-right/
+
+Once I get somewhere with this, I can go back and see if I can figure out how to get the more sophisticated firmware to work..
+
+Learning a lot about device tree overlays... here's a quick summary of commands for when I forget later:
+
+```
+dtc -W no-unit_address_vs_reg -I dts -O dtb -o 4x5matrix.dtbo 4x5matrix.dts
+sudo dtoverlay 4x5matrix
+sudo lsinput
+```
+
+Overall I'm getting the hang of it.  I need to write a proper overlay for my custom keyboard, I tried, but something is wrong with it and it doesn't load right.
+
+When it works correctly, you should be able to run `sudo lsinput` and see the device listed regardless of whether or not the electronics are hooked-up right.
