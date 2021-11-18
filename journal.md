@@ -295,3 +295,9 @@ sudo lsinput
 Overall I'm getting the hang of it.  I need to write a proper overlay for my custom keyboard, I tried, but something is wrong with it and it doesn't load right.
 
 When it works correctly, you should be able to run `sudo lsinput` and see the device listed regardless of whether or not the electronics are hooked-up right.
+
+Holy shit, it's working!
+
+With a minor mod to the 4x5 example overlay, I was able to get input from the custom keyboard.  I don't know why the overlay I wrote didn't work, but clearly there's some detail about writing these I'm missing.  Now that I have something that works, I can work backward from there and see if I can get more than one key going.
+
+Huzzah!
