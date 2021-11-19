@@ -11,14 +11,30 @@
 	    debounce-delay-ms = <10>;
 	    col-scan-delay-us = <10>;
 
-        row-gpios = <&gpio 12 0>;
-        col-gpios = <&gpio 20 0>;
+        row-gpios = <&gpio 4 0
+                     &gpio 27 0
+                     &gpio 22 0
+                     &gpio 23 0>;
+
+        col-gpios = <&gpio 24 0
+                     &gpio 10 0
+                     &gpio 9 0
+                     &gpio 25 0
+                     &gpio 11 0
+                     &gpio 8 0
+                     &gpio 7 0
+                     &gpio 5 0
+                     &gpio 6 0
+                     &gpio 12 0
+                     &gpio 19 0
+                     &gpio 16 0>;
 
 	    // Keycodes from https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h 
 
 	    linux,keymap = <
 			    // col0 row0 KEY_1
-                0x000000002>;
+                0x000000002
+                // col0 row1 >;
 
 	 };
       };

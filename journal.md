@@ -321,7 +321,7 @@ Some reference information:
 Steps:
 
 1. ~~Try customizing the [4x5matrix.dts](https://code.jasongullickson.com/jjg/rain-psp/src/branch/main/software/keyboard/4x5matrix.dts) overlay to rename the device without breaking it~~
-2. Continue to customize the overlay until it matches the current 1 row, 1 column keyboard wiring and emits the correct character (or some other character if the one on the selected key is invisible)
+2. ~~Continue to customize the overlay until it matches the current 1 row, 1 column keyboard wiring and emits the correct character (or some other character if the one on the selected key is invisible)~~
 3. Select GPIO pins for the remaining rows and columns
 4. Connect the keyboard cable to the selected GPIO pins
 5. Customize the overlay to add the remaining rows and columns and add values for all of the (unmodified) keys matching the key caps
@@ -409,5 +409,7 @@ OK, what's next?  I think it makes sense to try and pair-down the overlay so tha
 
 
 That worked.  Now I have an overlay file that defines one row GPIO, one column GPIO (i.e., one key) that output's the value `1` when pressed and compiles and installs with no errors.
+
+I think the next step is to wire-up the remaining rows and columns, which means picking the GPIO pins.  Since some are already allocated and documented, I think I'm going to start by expanding that documentation.
 
 
