@@ -30,11 +30,105 @@
                      &gpio 16 0>;
 
 	    // Keycodes from https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h 
+        // NOTE: For any key I don't have a mapping for yet, it's mapped to KEY_Q (16, 0010).
 
 	    linux,keymap = <
-			    // col0 row0 KEY_1
-                0x000000002
-                // col0 row1 >;
+			    // col0 row0 crop? 
+                0x00000010
+                // col0 row1 ???
+                0x01000010
+                // col0 row2 KEY_LEFTSHIFT  42 
+                0x0200002a
+                // col0 row3 KEY_LEFTCTRL   29
+                0x0300001d
+                // col1 row0 KEY_Q          16
+                0x00010010
+                // col1 row1 KEY_A          30
+                0x0101001e
+                // col1 row2 KEY_Z          44
+                0x0201002c
+                // col1 row3 func
+                0x03010010
+                // col2 row0 KEY_W          17
+                0x00020011
+                // col2 row1 KEY_S          31
+                0x0102001f
+                // col2 row2 KEY_X          45
+                0x0202002d
+                // col2 row3 KEY_LEFTMETA?  125
+                0x0302007d
+                // col3 row0 KEY_E          18
+                0x00030012
+                // col3 row1 KEY_D          32
+                0x01030020
+                // col3 row2 KEY_C          46
+                0x0203002e
+                // col3 row3 KEY_LEFTALT    56
+                0x03030038
+                // col4 row0 KEY_R          19
+                0x00040013
+                // col4 row1 KEY_F          33
+                0x01040021
+                // col4 row2 KEY_V          47
+                0x0204002f
+                // col4 row3 lower
+                0x03040010
+                // col5 row0 KEY_T          20
+                0x00050014
+                // col5 row1 KEY_G          34
+                0x01050022
+                // col5 row2 KEY_B          48
+                0x02050030
+                // col5 row3 none?
+                0x03050010
+                // col6 row0 KEY_Y          21
+                0x00060015
+                // col6 row1 KEY_H          35
+                0x01060023
+                // col6 row2 KEY_N          49
+                0x02060031
+                // col6 row3 KEY_SPACE      57
+                0x03060039
+                // col7 row0 KEY_U          22
+                0x00070016
+                // col7 row1 KEY_J          36
+                0x01070024
+                // col7 row2 KEY_M          50
+                0x01070032
+                // col7 row3 raise
+                0x03070010
+                // col8 row0 KEY_I          23
+                0x00080017
+                // col8 row1 KEY_K          37
+                0x01080025
+                // col8 row2 KEY_LEFTSLASH? 42
+                0x0208002a
+                // col8 row3 KEY_LEFT       105
+                0x03080069
+                // col9 row0 KEY_O          24
+                0x00090018
+                // col9 row1 KEY_L          38
+                0x01090026
+                // col9 row2 KEY_COMMA      51
+                0x02090033
+                // col9 row3 KEY_DOWN       108
+                0x0309006c
+                // col10 row0 KEY_P         25
+                0x00100019
+                // col10 row1 KEY_SEMICOLON 39
+                0x01100027
+                // col10 row2 KEY_DOT?      52
+                0x02100034
+                // col10 row3 KEY_UP        103
+                0x03100067
+                // col11 row0 maximize?
+                0x00110010
+                // col11 row1 KEY_APOSTROPHE?   40 
+                0x01110028
+                // col11 row2 KEY_ENTER     28
+                0x0211001c
+                // col11 row3 KEY_RIGHT     106
+                0x0311006a>;
 
 	 };
       };

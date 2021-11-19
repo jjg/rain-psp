@@ -385,7 +385,7 @@ The key we are getting is the number 1 from the keypad.  In the mapping, it look
 
 Does it break down like this?
 ```
-it's HEX    row     col     key-code
+it's HEX    col     row     key-code
 0x          00      03      004f
 ```
 
@@ -411,5 +411,27 @@ OK, what's next?  I think it makes sense to try and pair-down the overlay so tha
 That worked.  Now I have an overlay file that defines one row GPIO, one column GPIO (i.e., one key) that output's the value `1` when pressed and compiles and installs with no errors.
 
 I think the next step is to wire-up the remaining rows and columns, which means picking the GPIO pins.  Since some are already allocated and documented, I think I'm going to start by expanding that documentation.
+
+Pins picked, and overlay updated with mappings for every key I recognize (the keycaps have some weird ones...).  I also didn't try to do anything with the modifiers yet (one step at a time).
+
+New overlay compiled, but threw an error when I tried to install it:
+
+```
+Nov 19 15:08:23 rain-psp.local kernel: matrix-keypad RAINPSPKBD: matrix_keypad_map_key: invalid keymap entry 0x4000013 (row: 4, col: 0, rows: 4, cols: 12)
+Nov 19 15:08:23 rain-psp.local kernel: matrix-keypad RAINPSPKBD: failed to build keymap
+Nov 19 15:08:23 rain-psp.local kernel: matrix-keypad: probe of RAINPSPKBD failed with error -22
+```
+
+I left some keys out because I wasn't sure what they should be mapped to, but maybe I can't do that?  I'll try filling them all in with some key value and try again.
+
+Now all the keys have a mapping, but getting this error:
+
+```
+Nov 19 15:15:07 rain-psp.local kernel: matrix-keypad RAINPSPKBD: matrix_keypad_map_key: invalid keymap entry 0x4000013 (row: 4, col: 0, rows: 4, cols: 12)
+Nov 19 15:15:07 rain-psp.local kernel: matrix-keypad RAINPSPKBD: failed to build keymap
+Nov 19 15:15:07 rain-psp.local kernel: matrix-keypad: probe of RAINPSPKBD failed with error -22
+```
+
+It's funcking reversed...
 
 
