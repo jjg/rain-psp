@@ -31,6 +31,8 @@
 
 	    // Keycodes from https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h 
         // NOTE: For any key I don't have a mapping for yet, it's mapped to KEY_Q (16, 0010).
+        // NOTE: In the keymap the *row* comes first, not the column as the comments suggest
+        // TODO: Update the comments to avoid confusion in the future.
 
 	    linux,keymap = <
 			    // col0 row0 crop? 
@@ -114,21 +116,21 @@
                 // col9 row3 KEY_DOWN       108
                 0x0309006c
                 // col10 row0 KEY_P         25
-                0x00100019
+                0x000a0019
                 // col10 row1 KEY_SEMICOLON 39
-                0x01100027
+                0x010a0027
                 // col10 row2 KEY_DOT?      52
-                0x02100034
+                0x020a0034
                 // col10 row3 KEY_UP        103
-                0x03100067
+                0x030a0067
                 // col11 row0 maximize?
-                0x00110010
+                0x000b0010
                 // col11 row1 KEY_APOSTROPHE?   40 
-                0x01110028
+                0x010b0028
                 // col11 row2 KEY_ENTER     28
-                0x0211001c
+                0x020b001c
                 // col11 row3 KEY_RIGHT     106
-                0x0311006a>;
+                0x030b006a>;
 
 	 };
       };

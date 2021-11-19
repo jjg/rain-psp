@@ -434,4 +434,24 @@ Nov 19 15:15:07 rain-psp.local kernel: matrix-keypad: probe of RAINPSPKBD failed
 
 It's funcking reversed...
 
+The row goes first and the column goes second.  My original notes were correct, and the documentation I was referencing is wrong...
+
+With that reversed, the overlay installs w/o error.  Now it's time to do some wiring...
+
+...well shit.  While no error is thrown loading the overlay, the keyboard isn't listed when running `lsinput`, and the one connected key no longer works...
+
+Turns out I managed to have the overlay loaded twice (probably forgot to unload between tests).  After removing both and adding it back, I get another error:
+
+```
+Nov 19 15:34:51 rain-psp.local kernel: matrix-keypad RAINPSPKBD: matrix_keypad_map_key: invalid keymap entry 0x100019 (row: 0, col: 16, rows: 4, cols: 12)
+Nov 19 15:34:51 rain-psp.local kernel: matrix-keypad RAINPSPKBD: failed to build keymap
+Nov 19 15:34:51 rain-psp.local kernel: matrix-keypad: probe of RAINPSPKBD failed with error -22
+
+```
+
+I'm guessing I just messed something up while trying to flip the row/col arrangement so I'll go back a double-check everythying.
+
+Of course, the rows and columns need to be in hex just like the keycodes!  Columns 10 and 11 converted to 0a and 0b and now `lsinput` shows the keyboard again.  ...however now it is spitting out letters like crazy (in particular the letter `p`).  This might just be because I haven't wired-up the rest of the GPIO's, but it could also be related to a conflict with something else using some of the GPIO pins I picked...
+
+
 
