@@ -35,8 +35,9 @@ Keyboard Column
  
 ### Building and installing the keyboard overlay
 
-* `cd keyboard\overlay`
-* 'dtc -W no-unit_address_vs_reg -I dts -O dtb -o 4x5matrix.dtbo 4x5matrix.dts'
-* 'sudo dtoverlay 4x5matrix'
+* `cd keyboard`
+* `dtc -W no-unit_address_vs_reg -I dts -O dtb -o rainpspkbd.dtbo rainpspkbd.dts`
+* `sudo cp rainpspkbd.dtbo /boot/overlays/`
+* `sudo dtoverlay rainpspkbd`
 
 At this point you should see the keyboard listed by using the `sudo lsinput` command.

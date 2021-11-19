@@ -318,3 +318,63 @@ Some reference information:
 * [A Matrix Keypad on a Raspberry Pi done right](https://blog.gegg.us/2017/08/a-matrix-keypad-on-a-raspberry-pi-done-right/) - How to use the kernel to drive a keyboard via GPIO
 * [QMK How a matrix works](https://docs.qmk.fm/#/how_a_matrix_works)
 
+Steps:
+
+1. Try customizing the [4x5matrix.dts](https://code.jasongullickson.com/jjg/rain-psp/src/branch/main/software/keyboard/4x5matrix.dts) overlay to rename the device without breaking it
+2. Continue to customize the overlay until it matches the current 1 row, 1 column keyboard wiring and emits the correct character (or some other character if the one on the selected key is invisible)
+3. Select GPIO pins for the remaining rows and columns
+4. Connect the keyboard cable to the selected GPIO pins
+5. Customize the overlay to add the remaining rows and columns and add values for all of the (unmodified) keys matching the key caps
+
+Once we get this far we'll need to find the best way to implement the "modifier" keymappings (shift, raise, lower, etc.).  This is a lot of what the QMK kernel module gave us and I'm afraid that without it, this is going to be tough but since I couldn't get that module to compile I think we're just going to have to figure it out.
+
+```
+pi@rain-psp:~/rain-psp/software/keyboard $ dtc -W no-unit_address_vs_reg -I dts -O dtb -o rainpspkbd.dtbo rainpspkbd.dts 
+pi@rain-psp:~/rain-psp/software/keyboard $ ls -l
+total 12
+-rw-r--r-- 1 pi pi 1721 Nov 19 09:25 4x5matrix.dts
+-rw-r--r-- 1 pi pi 1049 Nov 19 10:17 rainpspkbd.dtbo
+-rw-r--r-- 1 pi pi 1722 Nov 19 10:16 rainpspkbd.dts
+pi@rain-psp:~/rain-psp/software/keyboard $ sudo cp rainpspkbd.dtbo /boot/overlays/
+pi@rain-psp:~/rain-psp/software/keyboard $ sudo dtoverlay rainpspkbd
+pi@rain-psp:~/rain-psp/software/keyboard $ lsinput
+```
+...
+
+```
+/dev/input/event4
+bustype : BUS_HOST
+vendor  : 0x0
+product : 0x0
+version : 0
+name    : "RAINPSPKBD"
+bits ev : EV_SYN EV_KEY EV_MSC EV_REP
+pi@rain-psp:~/rain-psp/software/keyboard $ input-events 4
+/dev/input/event4
+bustype : BUS_HOST
+vendor  : 0x0
+product : 0x0
+version : 0
+name    : "RAINPSPKBD"
+bits ev : EV_SYN EV_KEY EV_MSC EV_REP
+
+waiting for events
+10:22:26.733609: EV_MSC MSC_SCAN 3
+10:22:26.733609: EV_KEY KEY_KP1 (0x4f) pressed
+10:22:26.733609: EV_SYN code=0 value=0
+10:22:26.883573: EV_MSC MSC_SCAN 3
+10:22:26.883573: EV_KEY KEY_KP1 (0x4f) released
+10:22:26.883573: EV_SYN code=0 value=0
+10:22:28.383627: EV_MSC MSC_SCAN 3
+10:22:28.383627: EV_KEY KEY_KP1 (0x4f) pressed
+10:22:28.383627: EV_SYN code=0 value=0
+10:22:28.523544: EV_MSC MSC_SCAN 3
+10:22:28.523544: EV_KEY KEY_KP1 (0x4f) released
+10:22:28.523544: EV_SYN code=0 value=0
+timeout, quitting
+
+````
+
+Inching closer...
+
+
