@@ -453,5 +453,4 @@ I'm guessing I just messed something up while trying to flip the row/col arrange
 
 Of course, the rows and columns need to be in hex just like the keycodes!  Columns 10 and 11 converted to 0a and 0b and now `lsinput` shows the keyboard again.  ...however now it is spitting out letters like crazy (in particular the letter `p`).  This might just be because I haven't wired-up the rest of the GPIO's, but it could also be related to a conflict with something else using some of the GPIO pins I picked...
 
-
-
+Either way the next step is to power things down and start wiring-up the rest of the keyboard.
