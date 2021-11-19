@@ -301,3 +301,20 @@ Holy shit, it's working!
 With a minor mod to the 4x5 example overlay, I was able to get input from the custom keyboard.  I don't know why the overlay I wrote didn't work, but clearly there's some detail about writing these I'm missing.  Now that I have something that works, I can work backward from there and see if I can get more than one key going.
 
 Huzzah!
+
+
+## 11192021
+
+Now it's time to refine the keyboard firmare.
+
+Some reference information:
+
+* [matrix-keymap.yaml](https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/input/matrix-keymap.yaml) - The fundamental definitions for the `matrix-keyboard` kernel driver
+* [Enabling new hardware on the Raspberry Pi with Device Tree Overlays](https://bootlin.com/blog/enabling-new-hardware-on-raspberry-pi-with-device-tree-overlays/)
+* [Raspberry Pi 4 - Device Tree](https://blog.stabel.family/raspberry-pi-4-device-tree/) - information on compiling device tree overlays for the Raspberry Pi.
+* [How to Manage Kernel Modules Using modprobe Command](https://www.tecmint.com/load-and-unload-kernel-modules-in-linux/)
+* [QMK Hand-Wiring Guide](https://beta.docs.qmk.fm/using-qmk/guides/keyboard-building/hand_wire)
+* [How to hand wire a Planck](https://blog.roastpotatoes.co/guide/2015/11/04/how-to-handwire-a-planck/)
+* [A Matrix Keypad on a Raspberry Pi done right](https://blog.gegg.us/2017/08/a-matrix-keypad-on-a-raspberry-pi-done-right/) - How to use the kernel to drive a keyboard via GPIO
+* [QMK How a matrix works](https://docs.qmk.fm/#/how_a_matrix_works)
+
