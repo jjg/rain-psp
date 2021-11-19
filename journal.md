@@ -320,7 +320,7 @@ Some reference information:
 
 Steps:
 
-1. Try customizing the [4x5matrix.dts](https://code.jasongullickson.com/jjg/rain-psp/src/branch/main/software/keyboard/4x5matrix.dts) overlay to rename the device without breaking it
+1. ~~Try customizing the [4x5matrix.dts](https://code.jasongullickson.com/jjg/rain-psp/src/branch/main/software/keyboard/4x5matrix.dts) overlay to rename the device without breaking it~~
 2. Continue to customize the overlay until it matches the current 1 row, 1 column keyboard wiring and emits the correct character (or some other character if the one on the selected key is invisible)
 3. Select GPIO pins for the remaining rows and columns
 4. Connect the keyboard cable to the selected GPIO pins
@@ -376,5 +376,38 @@ timeout, quitting
 ````
 
 Inching closer...
+
+Trying to understand how the keymap works...
+
+The key we are getting is the number 1 from the keypad.  In the mapping, it looks like this:
+
+`0x00030004f`
+
+Does it break down like this?
+```
+it's HEX    row     col     key-code
+0x          00      03      004f
+```
+
+Using this reference:
+
+https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+
+It looks like that break-down is correct (at least for the keycode part).  Let's try changing it to the regular number 1 (instead of keypad 1) and see what happens.
+
+```
+keycode decimal hex
+KEY_1   2       2
+```
+
+Now reformat as above:
+`0x00030002`
+
+It works!
+
+OK, what's next?  I think it makes sense to try and pair-down the overlay so that it's only implementing the actual current electrical connections (row 0, column 0).  If we can do that and get it to complile and run w/o errors, we can move-on to connecting the remaining rows and columns and mapping everything out.
+
+
+That worked.  Now I have an overlay file that defines one row GPIO, one column GPIO (i.e., one key) that output's the value `1` when pressed and compiles and installs with no errors.
 
 
