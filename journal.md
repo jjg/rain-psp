@@ -454,3 +454,17 @@ I'm guessing I just messed something up while trying to flip the row/col arrange
 Of course, the rows and columns need to be in hex just like the keycodes!  Columns 10 and 11 converted to 0a and 0b and now `lsinput` shows the keyboard again.  ...however now it is spitting out letters like crazy (in particular the letter `p`).  This might just be because I haven't wired-up the rest of the GPIO's, but it could also be related to a conflict with something else using some of the GPIO pins I picked...
 
 Either way the next step is to power things down and start wiring-up the rest of the keyboard.
+
+
+## 11202021
+
+Tried connecting all the keyboard lines today.  Results are mixed.
+
+For the second, third and forth rows, everything works up to the fifth column (F, V, lower).  The first row doesn't work at all, and beyond the fifth column, pressing any key results in all of the rest of the keys in that row getting registered.
+
+hjk
+.
+
+The command `input-events 0` shows the real values of the key scanning result (as opposed to what is displayed on the screen).
+
+This is all very weird.  I don't know if it's a problem with the overlay, the wiring, the matrix or the GPIO pins I selected.  The possibilities are varied enough that I'm not exactly sure where to begin...
