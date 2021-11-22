@@ -11,7 +11,7 @@
 	    debounce-delay-ms = <10>;
 	    col-scan-delay-us = <10>;
 
-        row-gpios = <&gpio 4 0
+        row-gpios = <&gpio 20 0
                      &gpio 27 0
                      &gpio 22 0
                      &gpio 23 0>;
