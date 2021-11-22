@@ -52,21 +52,21 @@ Pin     GPIO        Device                  Notes
 21      9           Keyboard col 2          white
 22      25          Keyboard col 3          white
 23      11          Keyboard col 4          black
-24      8           Keyboard col 5          brown
+24      8                                   This was keyboard column 5 but malfunctioned? 
 25                                          GND
-26      7           Keyboard col 6          red
-27      0
-28      1
-29      5           Keyboard col 7          orange
+26      7                                   This was keyboard column 6 but malfunctioned? 
+27      0           Keyboard col 7          orange
+28      1           Keyboard col 8          yellow
+29      5                                   This was keyboard column 7 
 30                                          GND
-31      6           Keyboard col 8          yellow
+31      6                                   This was keyboard column 8
 32      12          Keyboard col 9          green
 33      13          LCD                     Backlight brightness (PWM)
 34                                          GND
 35      19          Keyboard col 10         blue
 36      16          Keyboard col 11         purple
-37      26
+37      26          Keyboard col 5          brown (was pin 24)
 38      20          Keyboard row 0          red
 39                                          GND
-40      21
+40      21          Keyboard col 6          red (was pin 26)
 ```

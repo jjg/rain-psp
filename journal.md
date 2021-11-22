@@ -510,4 +510,14 @@ Somthing I did just notice however for the affected rows is that when the proble
 
 > unrelated side-note: shift (and I assume other "standard" modifiers) works out of the box!
 
+Noticed that column 5 had a key defined for row 3 (which there isn't one).  Not sure if this will matter, but figured it was worth a shot.
 
+No difference.
+
+For lack of other ideas I moved column 5 to another GPIO (from 8 to 26) and the problem appears resolved for that column...
+
+So clearly there are pins that don't work correctly with the matrix keyboard driver, but it's not clear from the documentation I've found as to *why*...  I can keep swapping the additional columns but there's three more and I'm not sure I can find three more unused gpios...
+
+Well, this worked for all but columns 7 and 8.  I moved them to GPIO's 0 and 1 but the problem persists.
+
+Looks like I need to figure out why this happens on some pins.
