@@ -81,8 +81,8 @@
                 0x01050022
                 // col5 row2 KEY_B          48
                 0x02050030
-                // col5 row3 none?
-                0x03050010
+                // col5 row3 none
+                //0x03050010
                 // col6 row0 KEY_Y          21
                 0x00060015
                 // col6 row1 KEY_H          35
