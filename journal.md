@@ -468,3 +468,46 @@ hjk
 The command `input-events 0` shows the real values of the key scanning result (as opposed to what is displayed on the screen).
 
 This is all very weird.  I don't know if it's a problem with the overlay, the wiring, the matrix or the GPIO pins I selected.  The possibilities are varied enough that I'm not exactly sure where to begin...
+
+
+## 11222021
+
+After thinking about where to start I decided to start with the missing top row.  It seems like a distinct problem from the half-working rows, and I have at least a hunch as to where to begin troubleshooting.
+
+After double-checking all the wiring I've decided to move the row connection to a different GPIO, starting with GPIO 20 on pin 38.  This should rule-out any issue with the pin selection.
+
+Switching to GPIO 20 seems to have helped.  Now I'm seeing input from the top row, and it looks good up to the fifth column like the other rows, so that's progress.
+
+Now it's time to take a closer look at the fifth-column problem.
+
+Closer examination shows that the problem isn't happening all the way across each row, but limited to four keys starting with the sixth key in the column:
+
+```
+tyui
+ghjk
+bmn/
+[space][raise][left]
+```
+
+Beyond these keys each row more-or-less functions normally (more on that later).
+
+> It might help if I used a consistent numbering scheme for the rows and columns, and since I'm probably not going to change the way Linux counts them, I'm going to start indexing them at zero.
+
+Let's start by looking at the GPIOs used by the problematic columns 5-8:
+
+```
+column  pin gpio  notes
+
+5       24  8
+6       26  7
+7       29  5
+8       31  6
+```
+
+Nothing jumping out when I look into these pin selections...
+
+Somthing I did just notice however for the affected rows is that when the problem keys are pressed, the entire row of keys is registered in order (not just the keys to the right of the problem key).  I don't know what light this sheds yet but it's another clue.
+
+> unrelated side-note: shift (and I assume other "standard" modifiers) works out of the box!
+
+

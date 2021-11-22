@@ -35,38 +35,38 @@ Pin     GPIO        Device                  Notes
 4                   Clusterboard pin 1      5v (supplied from Clusterboard) 
 5       3
 6                   Clusterboard pin 6      GND
-7       4           Keyboard row 1?         red
+7       4                                   This was keyboard row 0, but it malfunctioned? 
 8       14          Clusterboard pin 8      UART TX
 9                                           GND
 10      15          Clusterboard pin 7      UART RX
 11      17
 12      18
-13      27          Keyboard row 2?         orange
+13      27          Keyboard row 1          orange
 14                                          GND
-15      22          Keyboard row 3?         yellow
-16      23          Keyboard row 4?         green
+15      22          Keyboard row 2          yellow
+16      23          Keyboard row 3          green
 17                                          3v3
-18      24          Keyboard col 1?         blue
-19      10          Keyboard col 2?         purple
+18      24          Keyboard col 0          blue
+19      10          Keyboard col 1          purple
 20                                          GND
-21      9           Keyboard col 3?         white
-22      25          Keyboard col 4?         white
-23      11          Keyboard col 5?         black
-24      8           Keyboard col 6?         brown
+21      9           Keyboard col 2          white
+22      25          Keyboard col 3          white
+23      11          Keyboard col 4          black
+24      8           Keyboard col 5          brown
 25                                          GND
-26      7           Keyboard col 7?         red
+26      7           Keyboard col 6          red
 27      0
 28      1
-29      5           Keyboard col 8?         orange
+29      5           Keyboard col 7          orange
 30                                          GND
-31      6           Keyboard col 9?         yellow
-32      12          Keyboard col 10?        green
+31      6           Keyboard col 8          yellow
+32      12          Keyboard col 9          green
 33      13          LCD                     Backlight brightness (PWM)
 34                                          GND
-35      19          Keyboard col 11?        blue
-36      16          Keyboard col 12?        purple
+35      19          Keyboard col 10         blue
+36      16          Keyboard col 11         purple
 37      26
-38      20
+38      20          Keyboard row 0          red
 39                                          GND
 40      21
 ```
