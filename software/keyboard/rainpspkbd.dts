@@ -37,8 +37,8 @@
 	    linux,keymap = <
 			    // col0 row0 crop? (for now, map to KEY_ESC 1) 
                 0x00000001
-                // col0 row1 ???
-                0x01000010
+                // col0 row1 ??? (for now, map to KEY_TAB 15)
+                0x0100000f
                 // col0 row2 KEY_LEFTSHIFT  42 
                 0x0200002a
                 // col0 row3 KEY_LEFTCTRL   29
