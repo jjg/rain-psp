@@ -521,3 +521,44 @@ So clearly there are pins that don't work correctly with the matrix keyboard dri
 Well, this worked for all but columns 7 and 8.  I moved them to GPIO's 0 and 1 but the problem persists.
 
 Looks like I need to figure out why this happens on some pins.
+
+
+## 11242021
+
+Today I'm going to try and move the remaining two malfunctioning columns to another set of pins.  This will sadly mean I won't have a PWM pin available to control the LCD brightness, but I need to prioritize typing over that for now.  Hopefully I will figure out why I can't use the original pins and I can relocate these to free-up a PWM.
+
+First I'm moving column 7 to GPIO 13 (pin 33).
+
+That worked, now to move column 8 to ... GPIO 2 (pin 3).
+
+That didn't worked.
+
+Let's take a look at all the pins that don't work and figure out what they have in common.
+
+```
+pin gpio    notes
+3   2       no pull-up I2C1 SDA, SMI SA3, DPI VSYNC, AVEOUT VSYNC, AVEIN VSYNC
+5   3       no pull-up
+7   4       GPCLK0, SMI SA1, DPI D0, AVEOUT VID0, AVEIN VID0, JTAG TDI 
+24  8       SPI0 CE0, SMI SD0, DPI D4, AVEOUT VID4, AVEIN VID4
+26  7       SPI0 CE1, SMI SWE_N/SRW_N, DPI D3, AVEOUT VID3, AVEIN VID3
+27  0       
+28  1
+29  5
+31  6
+```
+
+...ok I got bored with that.  Looks like there are pins that are just off-limits (3 and 5, no pull-up) and others that are probably bad because they are "overloaded" with other functions thatn GPIO (I2C, SPI, etc.).  I *thought* I had disabled all of those interfaces but maybe I need to do more?
+
+Not sure why I didn't notice this before but pin 11 (GPIO 17) is open, let's try that for column 8.
+
+That worked!
+
+Now to test *all* the keys again.
+
+```
+~~j produces m~~
+~~m produces nothing ~~
+~~/ produces nothing KEY_LEFTSHIFT (0x2a)~~
+, produces nothing (no events)
+```

@@ -23,8 +23,8 @@
                      &gpio 11 0
                      &gpio 26 0
                      &gpio 21 0
-                     &gpio 0 0
-                     &gpio 1 0
+                     &gpio 13 0
+                     &gpio 17 0
                      &gpio 12 0
                      &gpio 19 0
                      &gpio 16 0>;
@@ -96,15 +96,15 @@
                 // col7 row1 KEY_J          36
                 0x01070024
                 // col7 row2 KEY_M          50
-                0x01070032
+                0x02070032
                 // col7 row3 raise
                 0x03070010
                 // col8 row0 KEY_I          23
                 0x00080017
                 // col8 row1 KEY_K          37
                 0x01080025
-                // col8 row2 KEY_LEFTSLASH? 42
-                0x0208002a
+                // col8 row2 KEY_SLASH      53
+                0x02080035
                 // col8 row3 KEY_LEFT       105
                 0x03080069
                 // col9 row0 KEY_O          24
