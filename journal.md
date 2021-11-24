@@ -562,3 +562,7 @@ Now to test *all* the keys again.
 ~~/ produces nothing KEY_LEFTSHIFT (0x2a)~~
 , produces nothing (no events)
 ```
+
+Was able to fix all keys but one with small, easy-to-find errors in the overlay, but I'm afraid the last one might be electrical.  The `,` key doesn't even register an event, so it might be time to get the VOM out.
+
+

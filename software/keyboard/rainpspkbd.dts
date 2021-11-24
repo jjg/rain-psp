@@ -35,8 +35,8 @@
         // TODO: Update the comments to avoid confusion in the future.
 
 	    linux,keymap = <
-			    // col0 row0 crop? 
-                0x00000010
+			    // col0 row0 crop? (for now, map to KEY_ESC 1) 
+                0x00000001
                 // col0 row1 ???
                 0x01000010
                 // col0 row2 KEY_LEFTSHIFT  42 
@@ -123,8 +123,8 @@
                 0x020a0034
                 // col10 row3 KEY_UP        103
                 0x030a0067
-                // col11 row0 maximize?
-                0x000b0010
+                // col11 row0 maximize? (for now map to KEY_BACKSPACE 14)
+                0x000b000e
                 // col11 row1 KEY_APOSTROPHE?   40 
                 0x010b0028
                 // col11 row2 KEY_ENTER     28
