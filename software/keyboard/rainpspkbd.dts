@@ -49,8 +49,8 @@
                 0x0101001e
                 // col1 row2 KEY_Z          44
                 0x0201002c
-                // col1 row3 func
-                0x03010010
+                // col1 row3 KEY_FN         0x1d0 
+                0x030101d0
                 // col2 row0 KEY_W          17
                 0x00020011
                 // col2 row1 KEY_S          31
@@ -131,6 +131,8 @@
                 0x020b001c
                 // col11 row3 KEY_RIGHT     106
                 0x030b006a>;
+
+        linux,fn-keymap = < 0x0000019 >;
 
 	 };
       };

@@ -570,3 +570,7 @@ All keys working!
 The next step is to get the PLANCK-specific modifiers working.  As-is, the keyboard can't even make numbers (and there's no escape key), so it's pretty limited.  I also noticed that the wiring is very crammed so I'm making a new part to go under the keyboard tray to make a little more room in there.
 
 First journal entry using the custom keyboard.
+
+Trying to figure out how to add mappings for when the PLANCK keys LOWER and RAISE are pressed.  I've never used a "real" PLANCK so maybe I have it wrong, but my plan is to make holding the RAISE key swap-out an alternate keymap that adds some of the missing keys (for example, replacing the first row with numbers instead of QWERTY...etc.).  Maybe this isn't how LOWER and RAISE are supposed to work, but for now that's what we're going to do with them...
+
+RAIN
