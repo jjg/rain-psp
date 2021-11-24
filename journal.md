@@ -569,4 +569,4 @@ All keys working!
 
 The next step is to get the PLANCK-specific modifiers working.  As-is, the keyboard can't even make numbers (and there's no escape key), so it's pretty limited.  I also noticed that the wiring is very crammed so I'm making a new part to go under the keyboard tray to make a little more room in there.
 
-
+First journal entry using the custom keyboard.
