@@ -562,3 +562,7 @@ Now to test *all* the keys again.
 ~~/ produces nothing KEY_LEFTSHIFT (0x2a)~~
 , produces nothing (no events)
 ```
+
+I was able to fix all but the last problem by fixing small mistakes in the overlay.  The last one however was electrical, a solder joint that had come undone (probably while I was heating the column connections) that just needed to be resoldered.
+
+All keys working!
