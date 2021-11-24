@@ -563,6 +563,6 @@ Now to test *all* the keys again.
 , produces nothing (no events)
 ```
 
-Was able to fix all keys but one with small, easy-to-find errors in the overlay, but I'm afraid the last one might be electrical.  The `,` key doesn't even register an event, so it might be time to get the VOM out.
+I was able to fix all but the last problem by fixing small mistakes in the overlay.  The last one however was electrical, a solder joint that had come undone (probably while I was heating the column connections) that just needed to be resoldered.
 
-
+All keys working!
