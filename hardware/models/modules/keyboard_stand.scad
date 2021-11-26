@@ -8,8 +8,18 @@ module Keyboard_stand(){
     
     difference(){
         cube([80,BASE_DEPTH-(OUTER_WALL*2),20]);
-        translate([3,3,0]){
+        
+        translate([-3,3,0]){
             cube([80,(BASE_DEPTH-(OUTER_WALL*2))-3*2,20]);
+        }
+        
+        // Cutout for keyboard
+        translate([80, 0, 12]){
+            rotate([5,0,90]){
+                //color("green")
+                //Keyboard();
+                #cube([BASE_DEPTH,81,BOTTOM_HEIGHT]);
+            }
         }
     }
 }
