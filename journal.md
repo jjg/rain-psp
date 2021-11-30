@@ -574,3 +574,34 @@ First journal entry using the custom keyboard.
 Trying to figure out how to add mappings for when the PLANCK keys LOWER and RAISE are pressed.  I've never used a "real" PLANCK so maybe I have it wrong, but my plan is to make holding the RAISE key swap-out an alternate keymap that adds some of the missing keys (for example, replacing the first row with numbers instead of QWERTY...etc.).  Maybe this isn't how LOWER and RAISE are supposed to work, but for now that's what we're going to do with them...
 
 RAIN
+
+
+## 11262021
+
+Taking another shot at the [qmk kernel module](https://github.com/qmk/qmk_kernel_module) now that I've reached a point where I know the electrical connections are sound and I really need to get the keyboard "layers" working.
+
+Using these instructions from a friend on the fediverse (zen), I was able to get it to compile this time:
+
+```
+# sudo apt install raspberrypi-kernel raspberrypi-kernel-headers git bc bison flex libssl-dev evtest input-utils
+
+And reboot your system if the kernel was upgraded.
+
+Next, you have to clone recursively a git repository with submodules:
+
+$ git clone --recursive https://github.com/qmk/qmk_kernel_module; cd qmk_kernel_module
+
+And you have to fix line 30 of Makefile [github.com] , because looks like path to kernel headers was changed. Simply replace line:
+
+KDIR := /lib/modules/$(shell uname -r)/build
+
+with:
+
+KDIR := /usr/src/linux-headers-$(shell uname -r)/
+
+And then you will be able to compile kernel module using command make KEYBOARD=clueboard (see setup.sh [github.com] file for other commands to install kernel module into the system).
+```
+
+Now that it compiles, I need to create a keyboard config that matches my keyboard.
+
+
