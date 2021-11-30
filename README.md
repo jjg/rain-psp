@@ -17,8 +17,8 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
     * Experiment with network booting
 * Keyboard
     * ~~Order remaining keyboard switches~~
-    * Select gpio pins for keyboard
-    * Wire keyboard to pi0 gpio connector
+    * ~~Select gpio pins for keyboard~~
+    * ~~Wire keyboard to pi0 gpio connector~~
     * ~~Wire keyboard switches~~
     * ~~Order final keykcaps~~
     * Design mount for keyboard switchplate once final height is determined
@@ -40,11 +40,11 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
     * ~~Mount pi0~~
     * ~~Mount Clusterboard~~
     * ~~Test node power switch, LED indicator~~
-    * Order power switch/indicators for all cluster nodes
+    * ~~Order power switch/indicators for all cluster nodes~~
     * Add power input jack
     * Add main power switch
     * Expose Clusterboard ethernet port
-    * ~~Update renderings~~
+    * Update renderings
     * Replace PineA64 with pi0 in renderings
     * Move fan mounts up (level with bottom of case)
     * Create retaining strap for fans and remove grooves from case top
