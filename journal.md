@@ -647,3 +647,95 @@ sudo cp arch/arm/boot/zImage /boot/$KERNEL.img
 ```
 
 That's the end of the instructions, so I guess it's time to reboot....
+
+...and we're back!
+
+Now to re-try building the QMK kernel module.
+
+```
+make KEYBOARD=rainpsp && sudo make KEYBOARD=rainpsp install
+make
+```
+
+Holy shit, it actually compiled this time!
+
+```
+sudo make install
+sudo modprobe qmk
+lsmod | grep qmk
+```
+
+Output:
+
+```
+qmk                    28672  0
+input_polldev          16384  1 qmk
+```
+
+So far so good... now to try loading the keyboard overlay?
+
+```
+sudo make KEYBOARD=rainpsp load
+lsinput
+```
+
+Output:
+
+```
+pi@rain-psp:~/qmk_kernel_module $ sudo make KEYBOARD=rainpsp load
+  GEN      keyboard-default
+  GEN      keyboard-default
+* Loading rainpsp overlay
+pi@rain-psp:~/qmk_kernel_module $ lsinput
+/dev/input/event0
+   bustype : BUS_HOST
+   vendor  : 0x3a8
+   product : 0x68
+   version : 1
+   name    : "RAIN-PSP Keyboard"
+   phys    : "qmk/input0"
+   bits ev : EV_SYN EV_KEY EV_MSC EV_REP
+
+```
+
+At this point the single key mapping (row 0, col 0) emits the letter `q` as expected.  I thought I could test the function of the LOWER/RAISE keys but of course they won't work until I add a mapping for them...
+
+I haven't found any documentation explaining the QMK-specific keycodes, so I'm just sort of guessing by referencing the [planck.dts](https://github.com/qmk/qmk_kernel_module/blob/master/keyboards/planck.dts) file.  From what I can guess, the "code" for the LOWER/RAISE keys is `MO()` with an argument of `1` for LOWER and `2` for RAISE...?
+
+I'm going to try mapping these and see what happens...
+
+After figuring out that I had the row and column arguments swapped, it loads and appears to work:
+
+Output from `input-events 0` when pressing the 0,0 key (alone, +LOWER, +RAISE):
+
+```
+waiting for events
+09:57:38.466226: EV_KEY KEY_Q (0x10) pressed
+09:57:38.466226: EV_MSC MSC_SCAN 16
+09:57:38.466226: EV_SYN code=0 value=0
+09:57:38.626206: EV_KEY KEY_Q (0x10) released
+09:57:38.626206: EV_MSC MSC_SCAN 16
+09:57:38.626206: EV_SYN code=0 value=0
+09:57:40.036226: EV_KEY KEY_Q (0x10) pressed
+09:57:40.036226: EV_MSC MSC_SCAN 16
+09:57:40.036226: EV_SYN code=0 value=0
+09:57:40.216284: EV_KEY KEY_Q (0x10) released
+09:57:40.216284: EV_MSC MSC_SCAN 16
+09:57:40.216284: EV_SYN code=0 value=0
+09:57:42.586205: EV_KEY KEY_U (0x16) pressed
+09:57:42.586205: EV_MSC MSC_SCAN 22
+09:57:42.586205: EV_SYN code=0 value=0
+09:57:42.766208: EV_KEY KEY_U (0x16) released
+09:57:42.766208: EV_MSC MSC_SCAN 22
+09:57:42.766208: EV_SYN code=0 value=0
+09:57:47.446215: EV_KEY KEY_W (0x11) pressed
+09:57:47.446215: EV_MSC MSC_SCAN 17
+09:57:47.446215: EV_SYN code=0 value=0
+09:57:47.626212: EV_KEY KEY_W (0x11) released
+09:57:47.626212: EV_MSC MSC_SCAN 17
+09:57:47.626212: EV_SYN code=0 value=0
+```
+
+Now the next step is to complete the keymap in the overlay...
+
+
