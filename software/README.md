@@ -28,6 +28,14 @@ RAIN-PSP uses a custom keyboard with a [PLANCK]() layout.  The keyboard is const
 
 The current implmentation uses a modified version of the [QMK Kernel Module](https://github.com/qmk/qmk_kernel_module) project.  This code lives in the [qmk_kernel_module](./keyboard/qmk_kernel_module) directory.  This consists primarilly of a modified Makefile and a keyboard overlay specific to the RAIN-PSP keyboard.
 
+#### Layer 1
+
+![keyboard layer 1](../images/keyboard-layout-layer-1.png)
+
+#### Layer 2
+
+![keyboard layer 2](../images/keyboard-layout-layer-2.png)
+
 Building this is currently somewhat complicated and discussed at length in [the journal](https://code.jasongullickson.com/jjg/rain-psp/src/branch/main/journal.md#11262021).  It involves rebuilding the Linux kernel among other things so I'm hoping to avoid making people do this but I haven't decided on the best way to go about that.
 
 
