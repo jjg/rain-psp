@@ -744,3 +744,10 @@ I still don't understand how you access more than three layers, but that should 
 
 Link to [layer 2](http://www.keyboard-layout-editor.com/##@@_a:7%3B&=%60&=1&=2&=3&=4&=5&=6&=7&=8&=9&=0&=Back%20Space%3B&@=DEL&=A&=S&=D&=F&=G&=H&=-&=%2F=&=%5B&=%5D&=%5C%3B&@=Shift&=Z&=X&=C&=V&=B&=N&=M&=,&=HOME&=END&=Return%3B&@=&=Ctrl&=Alt&=Super&=%2F&dArr%2F%3B&_w:2%3B&=&=%2F&uArr%2F%3B&=%2F&larr%2F%3B&=%2F&darr%2F%3B&=%2F&uarr%2F%3B&=%2F&rarr%2F)
 
+(looks like those links don't work right...)
+
+This is my second journal entry using the custom keyboard.  All the keys work now including multiple layers (required for numbers, etc.).  Now that I can use all the keys I'm getting a feel for the ortholinear layout.  It's going to take some getting used to, but it's not bad, especially if you hold your hands in proper form.
+
+I'm noticing a few mapping errors although they don't feel unnatural; maybe I'll just swap some keycaps...
+
+
