@@ -605,3 +605,36 @@ And then you will be able to compile kernel module using command make KEYBOARD=c
 Now that it compiles, I need to create a keyboard config that matches my keyboard.
 
 
+## 11302021
+
+It doesn't compile (I thought I added that to the journal but it seems to be missing...?)
+
+Chatting more with Zen, it looks like there's additional changes to the makefile as we as a need to recompile the Linux kernal to enable `input-polldev` module.  It's been a very long time since I've needed to recomplile a Linux kernel (and I'm not sure I've ever done it on an ARM SBC) so this should be interesting.
+
+> based on [this guide](https://www.raspberrypi.com/documentation/computers/linux_kernel.html#building)
+
+First, edit /etc/apt/sources.list and make sure that the `deb-src` line isn't commented-out.
+
+```
+sudo apt update
+sudo apt install git bc bison flex libssl-dev make
+git clone --depth=1 --branch rpi-5.10.y https://github.com/raspberrypi/linux
+cd linux
+KERNEL=kernel
+make bcmrpi_defconfig
+sudo apt install libncurses5-dev
+make menuconfig
+```
+
+Navigate to Device Drivers -> Input device support and select Polled input device skeleton
+
+Save the changes, then:
+
+```
+make zImage modules dtbs
+sudo make modules_install
+sudo cp arch/arm/boot/dts/*.dtb /boot/
+sudo cp arch/arm/boot/dts/overlays/*.dtb /boot/overlays/
+sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/
+sudo cp arch/arm/boot/zImage /boot/$KERNEL.img
+```
