@@ -738,4 +738,9 @@ waiting for events
 
 Now the next step is to complete the keymap in the overlay...
 
+I found a website that makes it easy to see what keys belong where on the [planck keyboard](http://www.keyboard-layout-editor.com/##@@_a:7%3B&=Tab&=Q&=W&=E&=R&=T&=Y&=U&=I&=O&=P&=Back%20Space%3B&@=Esc&=A&=S&=D&=F&=G&=H&=J&=K&=L&=%2F%3B&='%3B&@=Shift&=Z&=X&=C&=V&=B&=N&=M&=,&=.&=%2F%2F&=Return%3B&@=&=Ctrl&=Alt&=Super&=%2F&dArr%2F%3B&_w:2%3B&=&=%2F&uArr%2F%3B&=%2F&larr%2F%3B&=%2F&darr%2F%3B&=%2F&uarr%2F%3B&=%2F&rarr%2F).  Since that's the basis for RAIN-PSP's keyboard we'll start there.
+
+I still don't understand how you access more than three layers, but that should be enough for now so I'm not going to worry about it too much.
+
+Link to [layer 2](http://www.keyboard-layout-editor.com/##@@_a:7%3B&=%60&=1&=2&=3&=4&=5&=6&=7&=8&=9&=0&=Back%20Space%3B&@=DEL&=A&=S&=D&=F&=G&=H&=-&=%2F=&=%5B&=%5D&=%5C%3B&@=Shift&=Z&=X&=C&=V&=B&=N&=M&=,&=HOME&=END&=Return%3B&@=&=Ctrl&=Alt&=Super&=%2F&dArr%2F%3B&_w:2%3B&=&=%2F&uArr%2F%3B&=%2F&larr%2F%3B&=%2F&darr%2F%3B&=%2F&uarr%2F%3B&=%2F&rarr%2F)
 
