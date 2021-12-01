@@ -110,11 +110,11 @@
                     LAYER_MATRIX_KEY(0,2,11,KC_ENT)
 
                     //LAYER_MATRIX_KEY(0,3,0,KC_??? // Not mapped in standard planck layer 1
-                    LAYER_MATRIX_KEY(0,3,1,KC_LCLT)
+                    LAYER_MATRIX_KEY(0,3,1,KC_LCTL)
                     LAYER_MATRIX_KEY(0,3,2,KC_LALT)
                     LAYER_MATRIX_KEY(0,3,3,KC_LGUI) // Is LGUI the "windows" key?
                     LAYER_MATRIX_KEY(0,3,4,MO(1))
-                    LAYER_MATRIX_KEY(0,3,5,KC_SPACE
+                    LAYER_MATRIX_KEY(0,3,5,KC_SPACE)
                     LAYER_MATRIX_KEY(0,3,7,MO(2))
                     LAYER_MATRIX_KEY(0,3,8,KC_LEFT)
                     LAYER_MATRIX_KEY(0,3,9,KC_DOWN)
@@ -163,11 +163,11 @@
                     LAYER_MATRIX_KEY(0,2,11,KC_ENT)
 
                     //LAYER_MATRIX_KEY(0,3,0,KC_??? // Not mapped in standard planck layer 1
-                    LAYER_MATRIX_KEY(0,3,1,KC_LCLT)
+                    LAYER_MATRIX_KEY(0,3,1,KC_LCTL)
                     LAYER_MATRIX_KEY(0,3,2,KC_LALT)
                     LAYER_MATRIX_KEY(0,3,3,KC_LGUI) // Is LGUI the "windows" key?
                     LAYER_MATRIX_KEY(0,3,4,MO(1))
-                    LAYER_MATRIX_KEY(0,3,5,KC_SPACE
+                    LAYER_MATRIX_KEY(0,3,5,KC_SPACE)
                     LAYER_MATRIX_KEY(0,3,7,MO(2))
                     LAYER_MATRIX_KEY(0,3,8,KC_LEFT)
                     LAYER_MATRIX_KEY(0,3,9,KC_DOWN)
@@ -216,11 +216,11 @@
                     LAYER_MATRIX_KEY(0,2,11,KC_ENT)
 
                     //LAYER_MATRIX_KEY(0,3,0,KC_??? // Not mapped in standard planck layer 1
-                    LAYER_MATRIX_KEY(0,3,1,KC_LCLT)
+                    LAYER_MATRIX_KEY(0,3,1,KC_LCTL)
                     LAYER_MATRIX_KEY(0,3,2,KC_LALT)
                     LAYER_MATRIX_KEY(0,3,3,KC_LGUI) // Is LGUI the "windows" key?
                     LAYER_MATRIX_KEY(0,3,4,MO(1))
-                    LAYER_MATRIX_KEY(0,3,5,KC_SPACE
+                    LAYER_MATRIX_KEY(0,3,5,KC_SPACE)
                     LAYER_MATRIX_KEY(0,3,7,MO(2))
                     LAYER_MATRIX_KEY(0,3,8,KC_LEFT)
                     LAYER_MATRIX_KEY(0,3,9,KC_DOWN)
