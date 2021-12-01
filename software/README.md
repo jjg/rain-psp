@@ -23,6 +23,14 @@ The operating system currently consists of Debian-based distros (Raspbian for th
 
 RAIN-PSP uses a custom keyboard with a [PLANCK]() layout.  The keyboard is constructed from CHERRY-MX Blue switches wired into a matrix and connected directly to the Raspberry Pi ZeroW head node (connection details are covered in the [hardware README](../hardware/README.md)).  
 
+
+### QMK Kernel Module
+
+The current implmentation uses a modified version of the [QMK Kernel Module](https://github.com/qmk/qmk_kernel_module) project.  This code lives in the [qmk_kernel_module](./keyboard/qmk_kernel_module) directory.  This consists primarilly of a modified Makefile and a keyboard overlay specific to the RAIN-PSP keyboard.
+
+Building this is currently somewhat complicated and discussed at length in [the journal](https://code.jasongullickson.com/jjg/rain-psp/src/branch/main/journal.md#11262021).  It involves rebuilding the Linux kernel among other things so I'm hoping to avoid making people do this but I haven't decided on the best way to go about that.
+
+
 ### matrix-keyboard kernel driver
 
 Originally, the keyboard was driven by the `matrix-keyboard` kernel driver using a custom device tree overlay.  This code can be found in the [matrix-keyboard](./keyboard/matrix-keyboard) directory.
@@ -35,12 +43,3 @@ Originally, the keyboard was driven by the `matrix-keyboard` kernel driver using
 * `sudo dtoverlay rainpspkbd`
 
 At this point you should see the keyboard listed by using the `sudo lsinput` command.
-
-
-### QMK Kernel Module
-
-The current implmentation uses a modified version of the [QMK Kernel Module](https://github.com/qmk/qmk_kernel_module) project.  This code lives in the [qmk_kernel_module](./keyboard/qmk_kernel_module) directory.  This consists primarilly of a modified Makefile and a keyboard overlay specific to the RAIN-PSP keyboard.
-
-Building this is currently somewhat complicated and discussed at length in [the journal](https://code.jasongullickson.com/jjg/rain-psp/src/branch/main/journal.md#11262021).  It involves rebuilding the Linux kernel among other things so I'm hoping to avoid making people do this but I haven't decided on the best way to go about that.
-
-
