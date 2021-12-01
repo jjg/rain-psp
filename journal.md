@@ -632,9 +632,18 @@ Save the changes, then:
 
 ```
 make zImage modules dtbs
+```
+
+## 12012021
+
+Still compiling...
+
+```
 sudo make modules_install
 sudo cp arch/arm/boot/dts/*.dtb /boot/
 sudo cp arch/arm/boot/dts/overlays/*.dtb /boot/overlays/
 sudo cp arch/arm/boot/dts/overlays/README /boot/overlays/
 sudo cp arch/arm/boot/zImage /boot/$KERNEL.img
 ```
+
+That's the end of the instructions, so I guess it's time to reboot....
