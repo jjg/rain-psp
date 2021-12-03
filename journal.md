@@ -751,3 +751,20 @@ This is my second journal entry using the custom keyboard.  All the keys work no
 I'm noticing a few mapping errors although they don't feel unnatural; maybe I'll just swap some keycaps...
 
 
+## 12032021
+
+Now that the keyboard is finished (or at least finished enough) I'm trying to decide how to prioritize the remaining work.
+
+At a high-level the work falls into three categories:
+
+1. Case
+2. Electronics
+3. Software
+
+All three have reached a "proof of concept" level of maturity so the next step will be to design their 1.0 form and then implement.  Of the three the software is the least mature, but at the same time it is the one for where there is plenty of existing work to draw from.
+
+The key missing piece of the electronics is the portable power supply.  The final version of this is a ways off, so far in fact that I probably won't include it in the 1.0 release of the machine.  I'll be satisfied if I can get the electronics to a point where everything works using a 5VDC external supply (that way if I really *need* portability I can use any commodity 5v battery with suitable current capacity).  To do the power supply right I'm going to have to design it myself, and that is going to take some time getting back into KiCAD, hunting-down the ideal components, etc.
+
+Given that, finalizing the electronics outside of the portable PS will help with establishing the final position of several of the electronic components (notably the LCD), which is a prerequisite to finalizing the 1.0 case design, so that's probably the place to start.
+
+Spent a little time drawing some wiring diagrams on the board and it occurs to me there may be some dependencies with nailing-down case design parts.  Hmm...
