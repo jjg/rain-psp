@@ -796,3 +796,24 @@ gpio -g pwm 18 X		# X ranges between 400-500?
 ```
 
 I can't seem to find this `gpio` command, I might have to resort to Python to test this...
+
+Using the [gpiozero](https://gpiozero.readthedocs.io/en/stable/) module, I was able to control the backlight using Python as so:
+
+```
+sudo apt install python3-gpiozero
+python3
+from gipozero import PWMOutputDevice
+backlight = PWMOutputDevice(18,initial_value=0)
+backlight.value = 1
+backlight.value = .5
+backlight.value = 0
+quit()
+```
+
+Valid values are 0-1 and are inversely proportional to brightness (i.e.: 0 is brightest).
+
+I thought I might have to change the PWM duty cycle based on the command line examples from the docs, but doing so made the screen flicker so I left it along (the default for gpiozero is 100hz).
+
+I'm not sure this is the best way to control the backlight (I imagine there is something simpler), ultimately I'll probably want to tie it to a keyboard command.  For now this confirms that it works, and the wiring is right, so I'll worry about the software details later.
+
+
