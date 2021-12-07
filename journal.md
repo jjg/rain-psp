@@ -768,3 +768,31 @@ The key missing piece of the electronics is the portable power supply.  The fina
 Given that, finalizing the electronics outside of the portable PS will help with establishing the final position of several of the electronic components (notably the LCD), which is a prerequisite to finalizing the 1.0 case design, so that's probably the place to start.
 
 Spent a little time drawing some wiring diagrams on the board and it occurs to me there may be some dependencies with nailing-down case design parts.  Hmm...
+
+
+## 12072021
+
+While I noodle on some of the overall wiring questions I think it's safe to solder some leads to the LCD so I can add software brightness control and remove the need for the USB power connection.  This will let me move the LCD to the center of the display cover and I can try creating a bezel to clean things up.  This will also let the display lid close without having to unplug the other end of the USB power cable.
+
+The LCD has solder pads labled 5V, GND and PWM.  There are two GND pads (one by the USB port and another by the PWM pad) but a continuity test shows them to be connected so I'm going to use the one by the USB port.
+
+
+```
+LCD         Rpi0w
+5V      ->  4 (5V) 
+GND     ->  6 (GND)
+PWM     ->  12
+```
+
+Looks like pin 12 is the only PWM open (`PWM0`, `GPIO18`), so we'll try that first.
+
+Controlling brightness from the command line (from the [Waveshare docs](https://www.waveshare.com/w/upload/5/56/PWM_control_backlight_manual.pdf)):
+
+```
+gpio -g pwm 18 1024     # ???
+gpio -g mode 18 pwm    	#set the pin as PWM
+gpio pwmc 1000          # ???
+gpio -g pwm 18 X		# X ranges between 400-500?
+```
+
+I can't seem to find this `gpio` command, I might have to resort to Python to test this...

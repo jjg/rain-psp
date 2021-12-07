@@ -30,19 +30,19 @@ Clusterboard        Device                  Notes
 ```
 Pin     GPIO        Device                  Notes
 1                                           3v3 
-2                                           5v
+2                   Clusterboard pin 1      5v (supply from Clusterboard)
 3       2                                   Was keyboard column 8, but it malfunctioned?
-4                   Clusterboard pin 1      5v (supplied from Clusterboard) 
+4                   LCD 5v                  5v (supplied to LCD) 
 5       3
-6                   Clusterboard pin 6      GND
+6                   LCD GND                 GND
 7       4                                   This was keyboard row 0, but it malfunctioned? 
-8       14          Clusterboard pin 8      UART TX
+8       14          Clusterboard pin 8      brown, UART TX
 9                                           GND
-10      15          Clusterboard pin 7      UART RX
+10      15          Clusterboard pin 7      orange, UART RX
 11      17          Keyboard col 8          yellow
-12      18
+12      18          LCD PWM                 white, backlight brightness
 13      27          Keyboard row 1          orange
-14                                          GND
+14                  Clusterboard pin 6      blue, GND
 15      22          Keyboard row 2          yellow
 16      23          Keyboard row 3          green
 17                                          3v3
