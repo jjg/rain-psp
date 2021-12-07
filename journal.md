@@ -816,4 +816,6 @@ I thought I might have to change the PWM duty cycle based on the command line ex
 
 I'm not sure this is the best way to control the backlight (I imagine there is something simpler), ultimately I'll probably want to tie it to a keyboard command.  For now this confirms that it works, and the wiring is right, so I'll worry about the software details later.
 
+One significant problem with using `gpiozero` is that it only drives the PWM pin while the Python program is runnning, so it's not terribly useful as say a CLI utility, etc.
+
 
