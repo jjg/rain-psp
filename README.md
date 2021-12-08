@@ -24,7 +24,7 @@ This work began years ago as a combination of the [OFFGRiD](https://code.jasongu
     * Design mount for keyboard switchplate once final height is determined
 * Display
     * Add LCD to assembly
-    * Wire LCD for non-USB power, PWM backlight control
+    * ~~Wire LCD for non-USB power, PWM backlight control~~
     * Relocate LCD now that there's more room on the left side
     * Design display bezel
     * Improve display hinge
