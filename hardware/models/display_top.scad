@@ -28,7 +28,7 @@ module Display_top(){
                 
                 // Make room for electronics
                 translate([-OUTER_WALL, OUTER_WALL, OUTER_WALL]){
-                    cube([WIDTH+2,DEPTH-(OUTER_WALL*2),HEIGHT+OUTER_WALL]);
+                    #cube([WIDTH+2,DEPTH-(OUTER_WALL*2),HEIGHT+OUTER_WALL]);
                 }
                 
                 // Opening for case top
