@@ -834,12 +834,47 @@ For now it might make sense to give the Clusterboard nodes static IP addresses t
 After weighting the options, I think it's just going to be easiest/most reliable to burn Armbian on to a few SD cards, boot them up one at a time, watch for them to DHCP an address from the LAN's router and then ssh into each to configure them.  There's certainly more automated ways to do it, but I need to be thoughtful about how and where I'm spending time.  This will get the nodes online, and then I can give them static addresses which will work both on and off the LAN, and I can start experimenting with running software on the cluster (and in particular, benchmarking it now that I have a reasonable cooling system setup).
 
 ```
-slot    name            ip              mac
-0       rain-psp-0      10.1.10.133     02:ba:cf:05:0d:71
+slot    name            DHCP ip         mac                 static ip
+0       rain-psp-0      10.1.10.133     02:ba:cf:05:0d:71   10.1.10.50/255.255.255.0
 1
 2
 3
 4
-5
-6
+5       rain-psp-5      10.1.10.241                         10.1.10.55
+6       rain-psp-6      10.1.10.145                         10.1.10.56
 ```
+
+OK, that's three nodes on-line, let's see what we can do with them.
+
+Looks like we need to install `libnss-mdns` and `libnss-mymachines` before the cluster nodes will see eachother by hostname (even when mdns is enabled in `armbian-config`?).
+
+Next create an ssh key on the head node: `ssh-keygen -t rsa`
+Then copy the key to each node: `ssh-copy-id -i ~/.ssh/id_rsa.pub user@host`
+
+Let's try `cssh` and `csftp` to see if we can make managing the cluster a little easier...
+
+```
+sudo apt install clusterssh
+
+```
+
+Oh nevermind, cssh is a GUI thing and for now we are textmode only.
+
+Let's start with [IPython](https://ipython.readthedocs.io/en/stable/interactive/index.html), I really want to run HPL but I need to dig up my notes and I don't have them handy at the moment.
+
+```
+sudo apt install python3-dev
+python3 -m venv ./venvs/ipython
+source ./venvs/ipython/bin/activate
+pip install wheel
+pip install ipython
+pip install ipyparallel
+```
+
+So far so good.
+
+Now using this guide to see if we can get the cluster running across multiple nodes:
+
+https://ipyparallel.readthedocs.io/en/latest/tutorial/process.html
+
+
