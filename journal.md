@@ -875,6 +875,11 @@ So far so good.
 
 Now using this guide to see if we can get the cluster running across multiple nodes:
 
+### References
+
 https://ipyparallel.readthedocs.io/en/latest/tutorial/process.html
-
-
+https://ipython.readthedocs.io/en/stable/interactive/tutorial.html
+https://ericdraken.com/cluster-computer-gotchas/
+https://www.mpich.org/downloads/
+https://mpitutorial.com/tutorials/running-an-mpi-cluster-within-a-lan/
+https://forum.armbian.com/topic/9402-ethernet-not-working-on-sopine-module/page/2/
