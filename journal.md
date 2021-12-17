@@ -819,3 +819,27 @@ I'm not sure this is the best way to control the backlight (I imagine there is s
 One significant problem with using `gpiozero` is that it only drives the PWM pin while the Python program is runnning, so it's not terribly useful as say a CLI utility, etc.
 
 
+## 12172021
+
+Once I got the power and backlight wired-up to the LCD I spent some time working on a basic bezel to clean things up, but it didn't quite fit in all the places.  Looks like I'm going to have to spend more time to get something that works, and if I'm going to spend the time I should really solve the hinge in a way that cleans all the wiring up an fills the final gap between the display and the keyboard.  That's going to take awhile, and require reprinting a number of parts so for now I put the display lid back together as-is so I could safely power the machine back up and work on other things in the meantime.
+
+The "other thing" at the top of my mind today is bringing additional cluster nodes online.  Right now I have a single node running [Armbian](https://www.armbian.com/) from an SD card which is connected to the rpi0w via serial.  I don't really want to move the serial connection around to configure each node, so ideally I'd like to prep SD cards for each node that will either "just work" when they are booted or if not that have something that I can ssh into from the existing cluster node for configuration.
+
+Currently the existing node's IP is configured via DHCP from an external DHCP server connected to the Clusterboard's ethernet port (just a connection to the onboard switch).  This is nice because it allows the nodes on the Clusterboard to connect directly to other devices on the network but I don't think this is an option in the long run if for no other reason than it makes it impossible to boot the machine when it's not connected to a network with a DHCP server...  I think the right configuration is to have the nodes on the clusterboard configured with static addresses, however this makes it hard to connect them to the Internet for installing software, etc. so I'm just not 100% sure yet.  The original RAIN MARK II setup used the ethernet port on the Clusterboard to connect to a "head node" which served as a bridge between the Clusterboard LAN and a larger network connected to a second interface (WiFi).  Since the rpi0w doesn't have an ethernet port, this isn't an option in the current configuration so I'm not sure what's the best way to go about this.
+
+One thing I didn't like about the previous setup was surprises related to updates being applied to nodes in the cluster, so I would be just as happy to have them not connected to the Internet and instead install the software from a single local source, but I'm not sure how best to do that.  I can think of hard ways to do it but I'd prefer to do something smarter than just having a big directory of binaries that get copied to each node.  Hmm...
+
+For now it might make sense to give the Clusterboard nodes static IP addresses that are valid addresses for the network they are connected to via the Clusterboard's ethernet port.  This allows the nodes to communicate with eachother across the Clusterboard switch regardless of whether or not the Clusterboard is connected to the larger LAN (and Internet), while preserving the ability to communicate with the nodes from other hosts on the network when it is connected.
+
+After weighting the options, I think it's just going to be easiest/most reliable to burn Armbian on to a few SD cards, boot them up one at a time, watch for them to DHCP an address from the LAN's router and then ssh into each to configure them.  There's certainly more automated ways to do it, but I need to be thoughtful about how and where I'm spending time.  This will get the nodes online, and then I can give them static addresses which will work both on and off the LAN, and I can start experimenting with running software on the cluster (and in particular, benchmarking it now that I have a reasonable cooling system setup).
+
+```
+slot    name            ip              mac
+0       rain-psp-0      10.1.10.133     02:ba:cf:05:0d:71
+1
+2
+3
+4
+5
+6
+```
