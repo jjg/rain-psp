@@ -6,7 +6,7 @@ module Display_bezel(){
     OUTER_WALL = 5;
     HINGE_BOLT_SHAFT_DIAMETER = 5;
     
-    LCD_WIDTH = 106.96;
+    LCD_WIDTH = 102.0; //106.96;
     LCD_DEPTH = 164.9;
     LCD_MOUNT_WIDTH = 124.27;
     
@@ -18,7 +18,7 @@ module Display_bezel(){
         
         // LCD hole
         translate([WIDTH-LCD_MOUNT_WIDTH,((DEPTH-(OUTER_WALL*2))/2)-(LCD_DEPTH/2),0]){
-            cube([LCD_WIDTH,LCD_DEPTH,3]);
+            #cube([LCD_WIDTH,LCD_DEPTH,3]);
             
             // Mounting holes
             translate([-5,4,0]){
