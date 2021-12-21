@@ -883,3 +883,8 @@ https://ericdraken.com/cluster-computer-gotchas/
 https://www.mpich.org/downloads/
 https://mpitutorial.com/tutorials/running-an-mpi-cluster-within-a-lan/
 https://forum.armbian.com/topic/9402-ethernet-not-working-on-sopine-module/page/2/
+
+
+## 12202021
+
+Started working on a CLI program to monitor the cluster.
