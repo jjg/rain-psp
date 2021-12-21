@@ -888,3 +888,82 @@ https://forum.armbian.com/topic/9402-ethernet-not-working-on-sopine-module/page/
 ## 12202021
 
 Started working on a CLI program to monitor the cluster.
+
+## 12212021
+
+Taking a whack at getting [HPL](https://www.netlib.org/benchmark/hpl/) running.  I really wish I could find my notes from before because I remember it being a bit of a struggle, but I've found a few other maniacs on the Internet running this on ARM clusters now so maybe it won't be quite so bad.
+
+* https://www.anthonymorast.com/blog/2019/10/31/setting-up-a-raspberry-pi-cluster-to-use-mpi/
+* https://www.howtoforge.com/tutorial/hpl-high-performance-linpack-benchmark-raspberry-pi/
+* https://www.netlib.org/benchmark/hpl/
+
+### Setup & test openmpi
+
+* On the head node:
+	+ `sudo apt install openmpi-bin openmpi-common libopenmpi-dev libatlas-base-dev gfortran`
+	+ Create `machinefile`
+	+ Copy test program to the identical path on each machine
+	+ Run the test program: `mpiexec -n 10 --machinefile machinefile ./hello_mpi`
+* On the other nodes:
+	+ `sudo apt install openmpi-bin openmpi-common`
+
+### Build HPL
+
+* Download & extract HPL
+* Create an architecture-specific makefile
+* Compile
+	+ `make arch=aarch64-linux`
+
+No matter what I do, I can't seem to get past this error:
+
+```
+make[2]: Entering directory '/home/jason/hpl/src/auxil/aarch64-linux'
+ar r /home/jason/hpl/lib/aarch64-linux /libhpl.a  HPL_dlacpy.o           HPL_dlatcpy.o          HPL_fprintf.o HPL_warn.o             HPL_abort.o            HPL_dlaprnt.o HPL_dlange.o HPL_dlamch.o
+ar: /home/jason/hpl/lib/aarch64-linux: file format not recognized
+```
+
+Holy shit, I think I found it.  Look closely above, notice something about the third line?
+
+`ar r /home/jason/hpl/lib/aarch64-linux /libhpl.a `
+
+There is a space in the path, which explains why `libhpl.a` is missing from the last line:
+
+`ar: /home/jason/hpl/lib/aarch64-linux: file format not recognized`
+
+It took me a minute to figure out where this space was coming from, it turns out there was a space at the end of line 64 of the architecture makefile:
+
+`ARCH         = aarch64-linux`
+
+With this removed, we get past that error.
+
+A few more errors cropped-up but they were much easier to solve, and after some tweaking I was able to get a [architecture makefile](./software/hpl/aarch64-linux) that compiles!
+
+Runs locally using the stock HPL.dat with this command:
+
+`mpiexec --machinefile -n 4 ./xhpl`
+
+This results in about 2.5 GFLOP (this is probably wrong)s.  
+
+To run it using the other cluster nodes we need to move the compiled `xhpl` binary to the other nodes.  With this we should be able to run with this command:
+
+`mpiexec --machinefile ~/machinefile -n 10 ./xhpl`
+
+But no, because we need to meet some of the missing dependencies.  That should be as easy as running a few `apt` commands:
+
+`sudo apt install openmpi-bin openmpi-common libopenmpi-dev libatlas-base-dev gfortran`
+
+After that I was able to run the job across the three nodes of the cluster.  The results are pretty poor right now, but I've done zero tuning and one node is stuck at 648Mhz, so that's a thing...
+
+
+28377   295
+
+With some tweaking on the config file based on [this guide](http://www.crc.nd.edu/~rich/CRC_Summer_Scholars_2014/HPL-HowTo.pdf) I'm starting to work the cluster reasonably hard and seeing core temps creep up.  General consensus is that 80c is as high as you want to go, and running at full-tilt for an extended time seems to hit only around 60c on the two fully-loaded (4 threads) modules so the cooling system must be doing OK.
+
+Helpful links (so I don't loose them):
+
+* https://www.calculatorsoup.com/calculators/math/scientific-notation-converter.php
+* https://www.anthonymorast.com/blog/2019/10/31/setting-up-a-raspberry-pi-cluster-to-use-mpi/
+* http://www.crc.nd.edu/~rich/CRC_Summer_Scholars_2014/HPL-HowTo.pdf
+* https://www.howtoforge.com/tutorial/hpl-high-performance-linpack-benchmark-raspberry-pi/
+* https://www.netlib.org/benchmark/hpl/
+* https://gist.github.com/Levi-Hope/27b9c32cc5c9ded78fff3f155fc7b5ea
