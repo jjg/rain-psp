@@ -967,3 +967,45 @@ Helpful links (so I don't loose them):
 * https://www.howtoforge.com/tutorial/hpl-high-performance-linpack-benchmark-raspberry-pi/
 * https://www.netlib.org/benchmark/hpl/
 * https://gist.github.com/Levi-Hope/27b9c32cc5c9ded78fff3f155fc7b5ea
+
+
+## 12222021
+
+Adding more nodes today.
+
+```
+slot    name            DHCP ip         mac                 static ip
+0       rain-psp-0      10.1.10.133     02:ba:cf:05:0d:71   10.1.10.50/255.255.255.0
+1       rain-psp-1      10.1.10.184                         10.1.10.51/255.255.255.0 
+2
+3       rain-psp-3      10.1.10.188                         10.1.10.53
+4       rain-psp-4      10.1.10.243                         10.1.10.54/255.255.255.0
+5       rain-psp-5      10.1.10.241                         10.1.10.55
+6       rain-psp-6      10.1.10.145                         10.1.10.56
+```
+
+### New node setup
+
+On the head node:
+
+1. Burn Amrbian image to SD
+2. Boot and locate pine64so's IP address using DHCP server
+3. `ssh root@new.node.ip.addr` (password: 1234)
+4. Complete Armbian setup (root password, new user, etc.)
+5. Use `armbian-config` to configure
+    + Personal -> Hostname -> set hostname (i.e. rain-psp-0.local)
+    + System -> Avahi -> enable
+    + System -> CPU -> set min to min, max to max and mode to `ondemand` 
+    + Set static IP (do this **last** because it will break the ssh connection)
+6. `ssh-copy-id -i ~/.ssh/id_rsa.pub user@new-host-name.local`
+7. `ssh new-host-name.local` 
+8. Install packages
+    + `sudo apt update`
+    + `sudo apt install -y libnss-mdns libnss-mymachines openmpi-bin openmpi-common libopenmpi-dev libatlas-base-dev gfortran`
+9. Install HPL
+    + From new node:
+        + `mkdir ~/hpl/bin/aarch64-linux`
+    + From head node:
+        + `cd ~/hpl/bin/aarch64-linux``
+        + `scp * new-host-name.local:/home/jason/hpl/bin/aarch64-linux/`
+10. Add new node to `machinefile`
