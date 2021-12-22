@@ -974,14 +974,14 @@ Helpful links (so I don't loose them):
 Adding more nodes today.
 
 ```
-slot    name            DHCP ip         mac                 static ip
-0       rain-psp-0      10.1.10.133     02:ba:cf:05:0d:71   10.1.10.50/255.255.255.0
-1       rain-psp-1      10.1.10.184                         10.1.10.51/255.255.255.0 
+slot    name            DHCP ip         static ip
+0       rain-psp-0      10.1.10.133     10.1.10.50
+1       rain-psp-1      10.1.10.184     10.1.10.51 
 2
-3       rain-psp-3      10.1.10.188                         10.1.10.53
-4       rain-psp-4      10.1.10.243                         10.1.10.54/255.255.255.0
-5       rain-psp-5      10.1.10.241                         10.1.10.55
-6       rain-psp-6      10.1.10.145                         10.1.10.56
+3       rain-psp-3      10.1.10.188     10.1.10.53
+4       rain-psp-4      10.1.10.243     10.1.10.54
+5       rain-psp-5      10.1.10.241     10.1.10.55
+6       rain-psp-6      10.1.10.145     10.1.10.56
 ```
 
 ### New node setup
@@ -1009,3 +1009,9 @@ On the head node:
         + `cd ~/hpl/bin/aarch64-linux``
         + `scp * new-host-name.local:/home/jason/hpl/bin/aarch64-linux/`
 10. Add new node to `machinefile`
+
+Found a weird issue with the way Armbian deals with logs.  Apparently they are kept in RAM, and the default size (50MB) runs out of space while I'm trying to install software (among other things).
+
+The size can be increased by editing `/etc/default/armbian-ramlog` and rebooting.
+
+I kicked this up to 100MB for all nodes, we'll see if the problem returns.
