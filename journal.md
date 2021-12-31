@@ -1015,3 +1015,8 @@ Found a weird issue with the way Armbian deals with logs.  Apparently they are k
 The size can be increased by editing `/etc/default/armbian-ramlog` and rebooting.
 
 I kicked this up to 100MB for all nodes, we'll see if the problem returns.
+
+
+## 12312021
+
+Created a [hackaday.io](https://hackaday.io/project/183330-rain-psp) page for the project.
