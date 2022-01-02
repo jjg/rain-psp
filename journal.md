@@ -1020,3 +1020,16 @@ I kicked this up to 100MB for all nodes, we'll see if the problem returns.
 ## 12312021
 
 Created a [hackaday.io](https://hackaday.io/project/183330-rain-psp) page for the project.
+
+
+## 01022022
+
+Spent some time over the last day or two working on getting HPL running on the 6 nodes that are currently online.  I'll be uploading a working HPL.cfg to the repository that manages about 10 gflops out of the current setup.
+
+Once I bring the remaining node online I'll spend some time tuning parameters and hopefully get closer to the theoreticaly maximum which should be around 20-25 gflops.
+
+One really important step that I forgot was to copy the HPL.dat to each node after making changes.  The resulting errors are not very helpful in understanding that this is the cause of the problem.  In the long run I'll be writing some tools to automate all this but for now I just need to remember to do this step.
+
+Another problem was name resolution.  As much as the zeroconf stuff works for most tools, for some reason the `.local` domain gets dropped when HPL (or mpi?) does some things which causes communications breakdowns.  After switching to using IP addresses for running HPL this went away.  This is another thing I'd like to simplify in the future but is good enough for now.
+
+
