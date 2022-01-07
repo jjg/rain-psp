@@ -15,7 +15,7 @@ type ClusterNode struct {
 	load     float64
 	mem      float64
 	temp     float64
-	loadHist []float64
+	loadHist [][]float64
 	memHist  []float64
 	tempHist []float64
 }
@@ -25,13 +25,25 @@ func (c *ClusterNode) SetLoad(v float64) {
 	c.load = v
 
 	// Add new value to end of loadHist, shift the rest left.
-	c.loadHist = append(c.loadHist[1:9], v)
+	c.loadHist[0] = append(c.loadHist[0][1:49], v)
+
+	//loadHistAxisOne := [1]float64{v} //append(c.loadHist[1:9], v)
+	//axisOne := make([]float64, 1)
+	//axisOne[0] = v
+
+	//c.loadHist = append(c.loadHist[1:9], axisOne)
 }
 
 // Cluster factory.
 func NewClusterNode() *ClusterNode {
 	p := new(ClusterNode)
-	p.loadHist = make([]float64, 10)
+	//p.loadHist = [][]float64{[]float64{0.1, 0.3, 0.2, 0.6, 0.4, 0.2, 0.4, 0.5, 0.9, 0.3}}
+
+	p.loadHist = make([][]float64, 1)
+	p.loadHist[0] = make([]float64, 50)
+
+	//p.loadHist[0] = append(p.loadHist[0], 0.8)
+
 	return p
 }
 
@@ -50,23 +62,26 @@ func main() {
 	node0 := NewClusterNode()
 
 	// Use ClusterNode instances to assign values to UI elements.
-	node0Load := widgets.NewSparkline()
+	//node0Load := widgets.NewSparkline()
+	node0Load := widgets.NewPlot()
 	node0Load.Title = fmt.Sprintf("load: %v", node0.load)
+	//node0Load.Marker = widgets.MarkerDot
 	node0Load.Data = node0.loadHist
-	node0Load.LineColor = ui.ColorBlue
+	//node0Load.SetRect(50, 0, 75, 10)
+	node0Load.LineColors[0] = ui.ColorBlue
+	/*
+		node0Mem := widgets.NewSparkline()
+		node0Mem.Title = "mem"
+		node0Mem.Data = node0.memHist
+		node0Mem.LineColors[0] = ui.ColorYellow
 
-	node0Mem := widgets.NewSparkline()
-	node0Mem.Title = "mem"
-	node0Mem.Data = node0.memHist
-	node0Mem.LineColor = ui.ColorYellow
-
-	node0Temp := widgets.NewSparkline()
-	node0Temp.Title = "temp"
-	node0Temp.Data = node0.tempHist
-	node0Temp.LineColor = ui.ColorRed
-
-	node0Group := widgets.NewSparklineGroup(node0Load, node0Mem, node0Temp)
-	node0Group.Title = "rain-psp-0"
+		node0Temp := widgets.NewSparkline()
+		node0Temp.Title = "temp"
+		node0Temp.Data = node0.tempHist
+		node0Temp.LineColors[0] = ui.ColorRed
+	*/
+	//node0Group := widgets.NewSparklineGroup(node0Load, node0Mem, node0Temp)
+	//node0Group.Title = "rain-psp-0"
 	//node0Group.SetRect(0, 0, 20, 20)
 	// TODO: Repeat for each node in the cluster.
 
@@ -76,8 +91,8 @@ func main() {
 
 	// Creates a grid to contain all the gauges.
 	grid.Set(
-		ui.NewRow(1.0/7,
-			ui.NewCol(1.0/1, node0Group),
+		ui.NewRow(1.0/4,
+			ui.NewCol(1.0/1, node0Load),
 		),
 		// TODO: Repeat for each node in the cluster.
 	)
