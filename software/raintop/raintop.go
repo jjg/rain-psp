@@ -5,9 +5,20 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/shirou/gopsutil/load"
+
 	ui "github.com/gizak/termui/v3"
 	"github.com/gizak/termui/v3/widgets"
 )
+
+// TODO: Create a routine that fetches performance data and
+// updates internal data sources (arrays).
+func getLoad() float64 {
+
+	l, _ := load.Avg() //rand.Float64()
+
+	return l.Load1
+}
 
 type ClusterNode struct {
 	host    string
@@ -15,8 +26,6 @@ type ClusterNode struct {
 	mem     float64
 	temp    float64
 	history [][]float64
-	//memHist  []float64
-	//tempHist []float64
 }
 
 // TODO: In each of these setters, use a variable instead
@@ -61,9 +70,6 @@ func NewClusterNode(host string) *ClusterNode {
 
 	return p
 }
-
-// TODO: Create a routine that fetches performance data and
-// updates internal data sources (arrays).
 
 func main() {
 	if err := ui.Init(); err != nil {
@@ -125,9 +131,9 @@ func main() {
 			// eventually the "SetXYZ()" methods will be
 			// called by a co-routine fetching actual
 			// data from the cluster nodes.a
-			node0.SetLoad(rand.Float64())
-			node0.SetMem(rand.Float64())
-			node0.SetTemp(rand.Float64())
+			node0.SetLoad(getLoad())
+			node0.SetMem(0.0)
+			node0.SetTemp(0.0)
 			//node0Load.Title = fmt.Sprintf("load: %v", node0.load)
 
 			// Update the UI widget for each counter, node.
