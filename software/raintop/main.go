@@ -23,7 +23,7 @@ func main() {
 	// Use ClusterNode instances to assign values to UI elements.
 	node0HistoryPlot := widgets.NewPlot()
 	node0HistoryPlot.Title = node0.Host
-	node0HistoryPlot.MaxVal = 1
+	node0HistoryPlot.MaxVal = 4 // TODO: Change this to 1 when load is a percentage.
 	node0HistoryPlot.Data = node0.History
 	node0HistoryPlot.LineColors[0] = ui.ColorBlue
 	node0HistoryPlot.LineColors[1] = ui.ColorYellow

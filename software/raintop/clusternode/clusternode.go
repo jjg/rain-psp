@@ -1,6 +1,12 @@
 package clusternode
 
 import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
+
 	"github.com/shirou/gopsutil/load"
 )
 
@@ -35,13 +41,56 @@ func (c *ClusterNode) Update() {
 	// TODO: Get the load, mem and temp
 	// TODO: Eventually this will use the host property
 	// to fetch this info from the remote node.
-	l, _ := load.Avg()
-	m := 0.5
-	t := 0.3
 
-	// Set the load, mem and temp
-	c.SetLoad(l.Load1)
-	c.SetMem(m)
+	// Load
+	// TODO: Get this directly from /proc/loadavg instead
+	// of using another package just for this.
+	l, err := load.Avg()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%s\n", err)
+		c.SetLoad(0.0)
+	} else {
+		c.SetLoad(l.Load1)
+	}
+
+	// Memory
+	// /proc/meminfo
+	meminfoFile, err := os.Open("/proc/meminfo")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%s\n", err)
+	}
+
+	defer meminfoFile.Close()
+
+	meminfoScanner := bufio.NewScanner(meminfoFile)
+
+	// TODO: Improve this, it's silly right now
+	// The first two lines of /proc/meminfo have
+	// the values we need, so we can just read them
+	// out one at a time, but there's probably a
+	// more flexible/elegant solution to this.
+	meminfoScanner.Scan()
+	// MemTotal:       32718804 kB
+	memTotalLine := meminfoScanner.Text()
+	i := strings.IndexRune(memTotalLine, ':')
+	memTotalValue := strings.TrimSpace(strings.TrimRight(memTotalLine[i+1:], "kB"))
+
+	meminfoScanner.Scan()
+	// MemFree:        24852164 kB
+	memFreeLine := meminfoScanner.Text()
+	i = strings.IndexRune(memFreeLine, ':')
+	memFreeValue := strings.TrimSpace(strings.TrimRight(memFreeLine[i+1:], "kB"))
+
+	memTotalFloat, _ := strconv.ParseFloat(memTotalValue, 64)
+	memFreeFloat, _ := strconv.ParseFloat(memFreeValue, 64)
+
+	// Calculate the percentage used
+	memPercentUsed := (memTotalFloat - memFreeFloat) / memTotalFloat
+
+	c.SetMem(memPercentUsed)
+
+	// TODO: Temp
+	t := 0.0
 	c.SetTemp(t)
 }
 
