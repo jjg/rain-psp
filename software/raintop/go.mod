@@ -1,4 +1,4 @@
-module code.jasongullickson.com/jjg/rain-psp/software/raintop
+module raintop
 
 go 1.16
 
