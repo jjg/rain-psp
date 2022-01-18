@@ -45,6 +45,8 @@ func (c *ClusterNode) Update() {
 	// Load
 	// TODO: Get this directly from /proc/loadavg instead
 	// of using another package just for this.
+	// TODO: Calculate this as a percentage (need to get
+	// the cpu/core count and divide the overall load.
 	l, err := load.Avg()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "%s\n", err)
@@ -90,6 +92,7 @@ func (c *ClusterNode) Update() {
 	c.SetMem(memPercentUsed)
 
 	// TODO: Temp
+	// TODO: Temp should be a percentage of maximum safe temperature.
 	t := 0.0
 	c.SetTemp(t)
 }
@@ -99,7 +102,7 @@ func (c *ClusterNode) SetLoad(v float64) {
 	c.Load = v
 
 	// Add new value to end of Hist, shift the rest left.
-	c.History[0] = append(c.History[0][1:c.HistoryLength-1], v)
+	c.History[0] = append(c.History[0][1:c.HistoryLength], v)
 }
 
 // Mem setter.
@@ -107,7 +110,7 @@ func (c *ClusterNode) SetMem(v float64) {
 	c.Mem = v
 
 	// Add new value to end of Hist, shift the rest left.
-	c.History[1] = append(c.History[1][1:c.HistoryLength-1], v)
+	c.History[1] = append(c.History[1][1:c.HistoryLength], v)
 }
 
 // Temp setter.
@@ -115,5 +118,5 @@ func (c *ClusterNode) SetTemp(v float64) {
 	c.Temp = v
 
 	// Add new value to end of Hist, shift the rest left.
-	c.History[2] = append(c.History[2][1:c.HistoryLength-1], v)
+	c.History[2] = append(c.History[2][1:c.HistoryLength], v)
 }
