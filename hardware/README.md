@@ -2,6 +2,21 @@
 
 RAIN PSP consists of off-the-shelf electronics combined with 3D printable chassis components as well as some custom electronics.
 
+## Components
+
+* 1x [PINE64 Clusterboard](https://pine64.com/product/clusterboard-with-7-sopine-compute-module-slots/)
+* 7x [SOPine Compute Module](https://pine64.com/product/sopine-a64-compute-module/)
+* 1x [Clusterboard Power Supply](https://pine64.com/product/clusterboard-us-power-supply/)
+* 1x [Raspberry Pi Zero W](https://www.raspberrypi.com/products/raspberry-pi-zero-w/)
+* 1x [Waveshare 7" HDMI LCD](https://www.waveshare.com/wiki/7inch_HDMI_LCD_(C))
+* 8x 16GB SD card
+* 3x 40mm 5vdc cooling fan
+* 40x Cherry MX Blue keyswitch
+* 7x 12mm illuminated momentary pushbutton
+* 1x 12mm illuminated pushbutton
+* 2x 1" 8-32 hex head screw
+* 2x 8-32 hex nut
+
 The current design revolves around the [Pine64 Clusterboard](https://wiki.pine64.org/wiki/Clusterboard).  This board provides a network of seven four-core ARM SoCs and Gigabit Ethernet interconnect.  A Raspberry Pi serves as a terminal for one of the nodes in the cluster, driving the keyboard and LCD display and  providing the user means to interact with the cluster.
 
 In addition to the computational components, peripherals such as keyboard, display, power supply, etc. are documented under this directory.

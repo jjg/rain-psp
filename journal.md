@@ -1047,3 +1047,10 @@ slot    name            DHCP ip         static ip
 ```
 
 
+## 01072022
+
+Hardware work is paused because as I pushed HPL beyond 10Gflops, the power connector on the Clusterboard began to malfunction (I guess it can't handle the sustained amps at full-power?).  I'm going to take this as an opportunity to wire-up the new power switches, etc. and as such will need to put this off until I can spend some time in "hardware mode".
+
+In the meantime I've been working on [raintop](./software/raintop), a console utility to monitor all of the nodes of the cluster in one place.  In the past I've used existing tools for this but most of them are web-based and I don't want to have to run a GUI just to monitor the cluster.
+
+I'm using this as an opportunity to work on my Go programming skills so it's taking longer than if I used a language I'm more familiar with, but I think the end result will be better.
