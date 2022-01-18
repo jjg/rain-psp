@@ -1033,3 +1033,17 @@ One really important step that I forgot was to copy the HPL.dat to each node aft
 Another problem was name resolution.  As much as the zeroconf stuff works for most tools, for some reason the `.local` domain gets dropped when HPL (or mpi?) does some things which causes communications breakdowns.  After switching to using IP addresses for running HPL this went away.  This is another thing I'd like to simplify in the future but is good enough for now.
 
 
+Adding the last node today:
+
+```
+slot    name            DHCP ip         static ip
+0       rain-psp-0      10.1.10.133     10.1.10.50
+1       rain-psp-1      10.1.10.184     10.1.10.51 
+2       rain-psp-2      10.1.10.169     10.1.10.52
+3       rain-psp-3      10.1.10.188     10.1.10.53
+4       rain-psp-4      10.1.10.243     10.1.10.54
+5       rain-psp-5      10.1.10.241     10.1.10.55
+6       rain-psp-6      10.1.10.145     10.1.10.56
+```
+
+

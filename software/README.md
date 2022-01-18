@@ -10,6 +10,32 @@ Firmware for custom hardware may live here as well, but I'm not 100% sure about 
 
 The operating system currently consists of Debian-based distros (Raspbian for the Rpi0W front-end, Armbian for the rest of the cluster).  Right now it looks like the user environment will be based on [IPython](http://ipython.org/documentation.html) as this provides both a rich terminal-based user interface as well as tooling for parallel computing.
 
+### New node setup
+
+1. Burn Amrbian image to SD
+2. Boot and locate pine64so's IP address using DHCP server
+3. `ssh root@new.node.ip.addr` (password: 1234)
+4. Complete Armbian setup (root password, new user, etc.)
+5. Use `armbian-config` to configure
+    + Personal -> Hostname -> set hostname (i.e. rain-psp-0.local)
+    + System -> Avahi -> enable
+    + System -> CPU -> set min to min, max to max and mode to `ondemand`
+    + Set static IP (do this **last** because it will break the ssh connection)
+6. `ssh-copy-id -i ~/.ssh/id_rsa.pub user@new-host-name.local`
+7. `ssh new-host-name.local`
+8. Edit `/etc/default/armbian-ramlog` and increase `SIZE=50` to `SIZE=100`
+8. Install packages
+    + `sudo apt update`
+    + `sudo apt install -y libnss-mdns libnss-mymachines openmpi-bin openmpi-common libopenmpi-dev libatlas-base-dev gfortran`
+9. Install HPL
+    + From new node:
+        + `mkdir -p ~/hpl/bin/aarch64-linux`
+    + From head node:
+        + `cd ~/hpl/bin/aarch64-linux``
+        + `scp * new-host-name.local:/home/jason/hpl/bin/aarch64-linux/`
+10. Add new node to `machinefile`
+
+
 
 ### References
 
